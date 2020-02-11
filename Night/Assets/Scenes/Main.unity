@@ -1696,7 +1696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.1980195, y: -0, z: -0, w: 0.9801981}
-  m_LocalPosition: {x: 30.01, y: 8.39, z: -53.24}
+  m_LocalPosition: {x: 40.32, y: 8.39, z: -53.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462644653}
@@ -1720,6 +1720,8 @@ MonoBehaviour:
   useOffsetValues: 1
   rotateSpeed: 5
   pivot: {fileID: 462644653}
+  maxViewAngle: 65
+  minViewAngle: -60
 --- !u!1 &1481392366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1975194375736644, guid: 128a80094e00bf34fa2555766a7eea0e,
