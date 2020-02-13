@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6205538155298768113}
   - component: {fileID: 6205538155298768114}
   m_Layer: 0
-  m_Name: SoftStar 1
+  m_Name: AugmentSizeStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067bb4444ef81d64c96c97bf7021d0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDecreasePercentage: 0.8
+  sizeIncreaseMultiplier: 1.2
+  moveDecreaseMultiplier: 0.8
+  healAmount: 10
   pickupEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
     type: 3}

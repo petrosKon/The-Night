@@ -6,6 +6,7 @@ public class PowerUpPickUp : MonoBehaviour
 {
     public float sizeIncreaseMultiplier;
     public float moveDecreaseMultiplier;
+    public int healAmount; 
 
     public GameObject pickupEffect;
 
@@ -14,6 +15,8 @@ public class PowerUpPickUp : MonoBehaviour
         if (other.tag == "Player")
         {
             FindObjectOfType<GameManager>().ScaleLerper(sizeIncreaseMultiplier, moveDecreaseMultiplier);
+
+            FindObjectOfType<HealthManager>().HealPlayer(healAmount);
 
             Instantiate(pickupEffect, transform.position, transform.rotation);
 
