@@ -36,10 +36,12 @@ public class PlayerController : MonoBehaviour
         moveDirection.y = yStore;
 
         if (characterController.isGrounded) {
+            UserInput();
 
             moveDirection.y = 0f;
             if (Input.GetButtonDown("Jump"))
             {
+                animator.SetTrigger("Jump");
                 moveDirection.y = jumpForce;
             }
 
@@ -57,7 +59,26 @@ public class PlayerController : MonoBehaviour
             playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
         }
 
-        animator.SetBool("isGrounded",characterController.isGrounded);
         animator.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
+    }
+
+    private void UserInput()
+    {
+
+        const float timeToCharge = 0.3f;
+        float chargeTimer = 0.0f;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            animator.SetTrigger("Attack 01");
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            animator.SetTrigger("Attack 02");
+
+        }
+
+ 
     }
 }
