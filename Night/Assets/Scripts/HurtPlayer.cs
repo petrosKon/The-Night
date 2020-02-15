@@ -6,6 +6,7 @@ public class HurtPlayer : MonoBehaviour
 {
     public int damageToGive;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,8 @@ public class HurtPlayer : MonoBehaviour
         {
 
             FindObjectOfType<HealthManager>().HurtPlayer(damageToGive);
+
+            Destroy(gameObject);
 
         }
     }

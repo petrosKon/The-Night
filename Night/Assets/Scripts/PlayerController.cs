@@ -65,9 +65,6 @@ public class PlayerController : MonoBehaviour
     private void UserInput()
     {
 
-        const float timeToCharge = 0.3f;
-        float chargeTimer = 0.0f;
-
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetTrigger("Attack 01");
