@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,6 +12,7 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
     Animator enemyAnimator;
     Vector3 stoppingVelocity = new Vector3(0f, 0f, 0f);
+    public bool isDestroyed;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +45,20 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       
+       if (other.gameObject.GetComponent<EnemyController>() != null) {
+
+            if (!other.gameObject.GetComponent<EnemyController>().isDestroyed)
+            {
+                isDestroyed = true;
+                transform.localScale *= 1.2f;
+                agent.speed *= 1.2f;
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
