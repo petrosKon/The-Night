@@ -7,6 +7,9 @@ TagManager:
   - EnemyEasy
   - EnemyMedium
   - EnemyHard
+  - Flower
+  - TopPoint
+  - BottomPoint
   layers:
   - Default
   - TransparentFX
