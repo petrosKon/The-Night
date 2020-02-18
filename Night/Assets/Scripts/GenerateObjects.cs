@@ -1,25 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GenerateObjects : MonoBehaviour
 {
     public GameObject theEnemy;
     public GameObject pointCrystal;
     public GameObject powerUpStar;
-    public int xPosTop,zPosTop;
-    public int xPosBottom,zPosBottom;
-    public int xPos, zPos;
-    public int enemyCount,pointCrystalCount,powerUpStarCount,flowerCount;
+    public Transform TopPoint, BottomPoint;
+    private int xPosTop,zPosTop;
+    private int xPosBottom,zPosBottom;
+    private int xPos, zPos;
+    private int enemyCount,pointCrystalCount,powerUpStarCount,flowerCount;
+
+    //we determine where the power ups are going to spawn!!
+    private readonly float crystalYSpawnPosition = 1.3f;
+    private readonly float powerUpStarYSpawnPosition = 1.4f;
 
     // Start is called before the first frame update
     void Start()
     {
-        xPosTop =  (int)GameObject.FindGameObjectWithTag("TopPoint").transform.position.x;
-        zPosTop = (int) GameObject.FindGameObjectWithTag("TopPoint").transform.position.z;    
 
-        xPosBottom = (int) GameObject.FindGameObjectWithTag("BottomPoint").transform.position.x;
-        zPosBottom = (int)GameObject.FindGameObjectWithTag("BottomPoint").transform.position.z;
+        xPosTop = (int)TopPoint.position.x;
+        zPosTop = (int)TopPoint.position.z;    
+
+        xPosBottom = (int)BottomPoint.position.x;
+        zPosBottom = (int)BottomPoint.position.z;
         StartCoroutine(SpawnLevel());
 
     }
@@ -30,7 +37,7 @@ public class GenerateObjects : MonoBehaviour
         {
             xPos = Random.Range(xPosTop, xPosBottom);
             zPos = Random.Range(zPosBottom, zPosTop);
-            Instantiate(theEnemy, new Vector3(xPos,0f,zPos),Quaternion.identity);
+            Instantiate(theEnemy, new Vector3(xPos,1f,zPos),Quaternion.identity);
             enemyCount++;
         }
 
@@ -38,7 +45,7 @@ public class GenerateObjects : MonoBehaviour
         {
             xPos = Random.Range(xPosBottom, xPosTop);
             zPos = Random.Range(zPosBottom, zPosTop);
-            Instantiate(pointCrystal, new Vector3(xPos, 1.3f, zPos), Quaternion.identity);
+            Instantiate(pointCrystal, new Vector3(xPos, crystalYSpawnPosition, zPos), Quaternion.identity);
             pointCrystalCount++;
         }
 
@@ -46,7 +53,7 @@ public class GenerateObjects : MonoBehaviour
         {
             xPos = Random.Range(xPosBottom, xPosTop);
             zPos = Random.Range(zPosBottom, zPosTop);
-            Instantiate(powerUpStar, new Vector3(xPos, 1.4f, zPos), Quaternion.identity);
+            Instantiate(powerUpStar, new Vector3(xPos, powerUpStarYSpawnPosition, zPos), Quaternion.identity);
             powerUpStarCount++;
         }
 

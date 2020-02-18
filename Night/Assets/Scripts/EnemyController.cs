@@ -6,20 +6,35 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    //determines in what radius the player is seen by the enemy
     public float lookRadius = 10f;
 
     Transform target;
     NavMeshAgent agent;
     Animator enemyAnimator;
-    Vector3 stoppingVelocity = new Vector3(0f, 0f, 0f);
-    public bool isDestroyed;
+    
+    //determines and destroys one of the two enemy objects!!
+    private bool isDestroyed;
 
-    [SerializeField]
+   // [SerializeField]
     private float timeOfDay;
+    //this bool shows if the enemy gets the power up boost at night
     private bool enemyPowerUp = false;
 
     //pick up effect
     public GameObject pickUpEffect;
+
+    //Static variables that we need in our code for the enemies!!!
+    public static Vector3 finalEnemyScale = new Vector3(2f, 2f, 2f);
+    public static Vector3 startingEnemyScale = new Vector3(1f, 1f, 1f);
+    public static Vector3 stoppingVelocity = new Vector3(0f, 0f, 0f);
+
+    //Power up Multipliers
+    public static float nightPowerUpMultiplier = 1.4f;
+    public static float combinePowerUpMultiplier = 1.2f;
+
+    //Max enemy speed
+    public static float maxEnemyEasySpeed = 8f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,41 +48,46 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        EnemyMovement();
+
+        PowerUpEnemies();
+
+    }
+
+    public void EnemyMovement()
+    {
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (distance <= lookRadius)
         {
-            
+
             agent.SetDestination(target.position);
 
             enemyAnimator.SetBool("Run Forward", true);
 
-        } 
-
-        //The player has gotten away from our enemies so they stopped moving
-        if(agent.velocity == stoppingVelocity)
-        {
-            enemyAnimator.SetBool("Walk Forward", false);
-
         }
 
+        //The player has gotten away from our enemies so they stopped moving
+        //Transition back to idle state
+        if (agent.velocity == stoppingVelocity)
+        {
+            enemyAnimator.SetBool("Run Forward", false);
+        }
+    }
+
+    private void PowerUpEnemies()
+    {
         timeOfDay += Time.deltaTime * 0.2f;
         timeOfDay %= 24;
 
-        PowerUpEnemies(timeOfDay);
-
-    }
-
-    private void PowerUpEnemies(float timeOfDay)
-    {
         //Night Enters
         if (timeOfDay <= 6 || timeOfDay >= 19)
         {
             if (!enemyPowerUp)
             {
                 enemyPowerUp = true;
-                transform.localScale *= 1.4f;
-                agent.speed *= 1.4f;
+                EnemyEasyMaxScale(nightPowerUpMultiplier);
             }
         }
         else
@@ -89,17 +109,50 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
-       if (other.gameObject.GetComponent<EnemyController>() != null) {
+        PowerEnemyPickup(other);
 
-            if (!other.gameObject.GetComponent<EnemyController>().isDestroyed)
+    }
+
+    //The enemy gets a boost by touching another enemy
+    public void PowerEnemyPickup(Collider other)
+    {
+
+        try
+        {
+
+            if (other.gameObject.GetComponent<EnemyController>() != null)
             {
-                isDestroyed = true;
-                transform.localScale *= 1.2f;
-                agent.speed *= 1.2f;
-                Instantiate(pickUpEffect, transform.position, transform.rotation);
-                Destroy(other.gameObject);
+
+                if (!other.gameObject.GetComponent<EnemyController>().isDestroyed)
+                {
+                    isDestroyed = true;
+                    EnemyEasyMaxScale(combinePowerUpMultiplier);
+                    Instantiate(pickUpEffect, transform.position, transform.rotation);
+                    Destroy(other.gameObject);
+                }
             }
+
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.LogError(e);
+        }
+    }
+
+    //Increases the enemy size
+    public void EnemyEasyMaxScale(float increaseMultiplier)
+    {
+        //prevent the enemy from getting really big!!!
+        if (transform.localScale.magnitude * increaseMultiplier < finalEnemyScale.magnitude)
+        {
+
+            transform.localScale *= increaseMultiplier;
+            agent.speed *= increaseMultiplier;
+        }
+        else
+        {
+            transform.localScale = finalEnemyScale;
+            agent.speed = maxEnemyEasySpeed;
         }
     }
 }

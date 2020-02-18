@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeIncreaseMultiplier: 1.2
-  moveDecreaseMultiplier: 0.8
+  moveDecreaseMultiplier: 0.9
   healAmount: 10
   pickupEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
     type: 3}

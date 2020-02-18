@@ -14,7 +14,7 @@ public class LightingManager : MonoBehaviour
 
     private void Start()
     {
-        timeOfDay = Random.Range(0, 24);
+        timeOfDay = Random.Range(10, 18);
     }
 
     private void Update()

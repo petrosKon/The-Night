@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pointsText;
     public GameObject player;
 
+    public static Vector3 maxPlayerScale = new Vector3(3f, 3f, 3f);
+    public static float minPlayerSpeed = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
     public void ScaleLerper(float sizeIncreaseMultiplier, float moveDecreaseMultiplier)
     {
         //TODO: Create a scaling up animation!!!!
-          Vector3 minScale = player.transform.localScale;
+         /* Vector3 minScale = player.transform.localScale;
           Vector3 maxScale = minScale * sizeIncreaseMultiplier;
           Debug.Log("Min Scale: " + minScale);
           Debug.Log("Max Scale: " + maxScale);
@@ -48,11 +50,23 @@ public class GameManager : MonoBehaviour
               Debug.Log("Rate: " + rate);
               player.transform.localScale = Vector3.Lerp(minScale, maxScale, i);
               Debug.Log("Local Scale: " + transform.localScale);
-          }
-       // player.transform.localScale *= sizeIncreaseMultiplier;
+          }*/
 
-        //Reduce the player speed
-        FindObjectOfType<PlayerController>().moveSpeed *= moveDecreaseMultiplier;
+        if(player.transform.localScale.magnitude * sizeIncreaseMultiplier < maxPlayerScale.magnitude)
+        {
+            player.transform.localScale *= sizeIncreaseMultiplier;
+            //Reduce the player speed
+            FindObjectOfType<PlayerController>().moveSpeed *= moveDecreaseMultiplier;
+
+        }
+        else
+        {
+            player.transform.localScale = maxPlayerScale;
+            //Reduce the player speed
+            FindObjectOfType<PlayerController>().moveSpeed = minPlayerSpeed;
+        }
+
+       
         }
 
   

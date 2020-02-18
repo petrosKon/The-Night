@@ -57,7 +57,7 @@ NavMeshAgent:
   m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 150
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -79,6 +79,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 10
+  isDestroyed: 0
+  timeOfDay: 0
+  pickUpEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
+    type: 3}
 --- !u!114 &2002969171916792719
 MonoBehaviour:
   m_ObjectHideFlags: 0
