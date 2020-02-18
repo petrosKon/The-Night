@@ -7,11 +7,16 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject[] levels;
 
+    //nav mesh surface in order to build the nav mesh in real time!!!!
+    public NavMeshSurface surface;
+
     private float levelLength = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+      
+
         foreach(GameObject level in levels)
         {
             levelLength += 50f;
@@ -23,6 +28,8 @@ public class LevelManager : MonoBehaviour
 
             }
         }
+
+        surface.BuildNavMesh();
     }
 
     // Update is called once per frame
