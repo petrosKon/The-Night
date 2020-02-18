@@ -43,6 +43,8 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
         timeOfDay = FindObjectOfType<LightingManager>().timeOfDay;
+
+       
     }
 
     // Update is called once per frame
@@ -52,7 +54,6 @@ public class EnemyController : MonoBehaviour
         EnemyMovement();
 
         PowerUpEnemies();
-
     }
 
     public void EnemyMovement()
