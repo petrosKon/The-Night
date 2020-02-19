@@ -18,15 +18,20 @@ public class GenerateObjects : MonoBehaviour
     private readonly float crystalYSpawnPosition = 1.3f;
     private readonly float powerUpStarYSpawnPosition = 1.4f;
 
+    private float obstacleCheckRadius = 1f;
+
+    public Collider[] colliders;
+
     // Start is called before the first frame update
     void Start()
     {
 
         xPosTop = (int)TopPoint.position.x;
-        zPosTop = (int)TopPoint.position.z;    
+        zPosTop = (int)TopPoint.position.z;
 
         xPosBottom = (int)BottomPoint.position.x;
         zPosBottom = (int)BottomPoint.position.z;
+
         StartCoroutine(SpawnLevel());
 
     }
@@ -35,29 +40,61 @@ public class GenerateObjects : MonoBehaviour
     {
         while (enemyCount < 5)
         {
-            xPos = Random.Range(xPosTop, xPosBottom);
-            zPos = Random.Range(zPosBottom, zPosTop);
-            Instantiate(theEnemy, new Vector3(xPos,1f,zPos),Quaternion.identity);
+
+            preventSpawnOverlap();
+            Instantiate(theEnemy, new Vector3(xPos, 1f, zPos), Quaternion.identity);
             enemyCount++;
+            
+           
         }
 
         while (pointCrystalCount < 50)
         {
-            xPos = Random.Range(xPosBottom, xPosTop);
-            zPos = Random.Range(zPosBottom, zPosTop);
+            preventSpawnOverlap();
             Instantiate(pointCrystal, new Vector3(xPos, crystalYSpawnPosition, zPos), Quaternion.identity);
             pointCrystalCount++;
+            
         }
 
         while (powerUpStarCount < 3)
         {
-            xPos = Random.Range(xPosBottom, xPosTop);
-            zPos = Random.Range(zPosBottom, zPosTop);
+
+            preventSpawnOverlap();
             Instantiate(powerUpStar, new Vector3(xPos, powerUpStarYSpawnPosition, zPos), Quaternion.identity);
             powerUpStarCount++;
         }
+        
 
         yield return new WaitForSeconds(0f);
 
     }
+
+    private void preventSpawnOverlap()
+    {
+        bool validPosition = false;
+
+        while (!validPosition)
+        {
+            validPosition = true;
+
+            xPos = Random.Range(xPosTop, xPosBottom);
+            zPos = Random.Range(zPosBottom, zPosTop);
+            Vector3 randomPosition = new Vector3(xPos, 0f, zPos);
+
+            //we get the nearby colliders and if there is none around we spawn our object!!!
+            colliders = Physics.OverlapSphere(randomPosition, obstacleCheckRadius);
+
+            foreach (Collider col in colliders)
+            {
+
+                if (col.tag == "Obstacle")
+                {
+                    validPosition = false;                }
+
+
+            }
+        }
+    }
+        
+      
 }

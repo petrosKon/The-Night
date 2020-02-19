@@ -16,7 +16,6 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
       
-
         foreach(GameObject level in levels)
         {
             levelLength += 50f;
