@@ -5,15 +5,20 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
+
+    [Header("Attributes")]
     public float range = 15f;
+    public float fireRate = 1f;
+    private int numberOfShots = 0;
+    private float fireCountdown = 0f;
 
-    public string enemyEasyTag = "EnemyEasy";
-
+    [Header("Unity Setup Fields")]
+    public string enemyTag = "Enemy";
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
-    public float fireRate = 1f;
-    private float fireCountdown = 0f;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +28,7 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyEasyTag);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
@@ -59,7 +64,31 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation,lookRotation,Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f,rotation.y,0f);
 
+        if(fireCountdown <= 0f)
+        {          
+            //fire and kill max 3 enemies
+           if(numberOfShots < 3)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+                               
+        }
 
+        fireCountdown -= Time.deltaTime;
+    }
+
+    void Shoot()
+    {
+        numberOfShots++;
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation) as GameObject;
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        Debug.Log(numberOfShots);
+
+        if(bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
     private void OnDrawGizmosSelected()

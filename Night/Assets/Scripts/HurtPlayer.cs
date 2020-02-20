@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class HurtPlayer : MonoBehaviour
 {
-    public int damageToGive;
+    //public int damageToGive;
+
+    public Renderer playerRenderer;
 
     void Start()
     {
 
+
+        /*
         if (this.gameObject.tag == "EnemyEasy")
         {
             damageToGive = 20;
@@ -20,27 +24,24 @@ public class HurtPlayer : MonoBehaviour
         else if (this.gameObject.tag == "EnemyHard")
         {
             damageToGive = 50;
-        }
+        }*/
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
+           
+                FindObjectOfType<GameManager>().DamagePlayer();
 
-            FindObjectOfType<HealthManager>().HurtPlayer(damageToGive);
-
-            FindObjectOfType<GameManager>().ScaleLerper(0.8f, 1.2f);
-
-            Destroy(gameObject);
-
+            
         }
     }
 }

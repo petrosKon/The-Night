@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour
     //Max enemy speed
     public static float maxEnemyEasySpeed = 8f;
 
+    public GameObject particleDeathEffectEnemyPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,27 +58,33 @@ public class EnemyController : MonoBehaviour
         PowerUpEnemies();
     }
 
+    //enemy movement to follow the player
     public void EnemyMovement()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
-
-        if (distance <= lookRadius)
+        if(target != null)
         {
+            float distance = Vector3.Distance(target.position, transform.position);
 
-            agent.SetDestination(target.position);
+            if (distance <= lookRadius)
+            {
 
-            enemyAnimator.SetBool("Run Forward", true);
+                agent.SetDestination(target.position);
 
+                enemyAnimator.SetBool("Run Forward", true);
+
+            }
+
+            //The player has gotten away from our enemies so they stopped moving
+            //Transition back to idle state
+            if (agent.velocity == stoppingVelocity)
+            {
+                enemyAnimator.SetBool("Run Forward", false);
+            }
         }
-
-        //The player has gotten away from our enemies so they stopped moving
-        //Transition back to idle state
-        if (agent.velocity == stoppingVelocity)
-        {
-            enemyAnimator.SetBool("Run Forward", false);
-        }
+      
     }
 
+    //enemy power up during night time hours
     private void PowerUpEnemies()
     {
         timeOfDay += Time.deltaTime * 0.2f;
@@ -118,26 +126,37 @@ public class EnemyController : MonoBehaviour
     public void PowerEnemyPickup(Collider other)
     {
 
-        try
+        //if an enemy touches another enemy
+        if(other.tag == "Enemy")
         {
-
-            if (other.gameObject.GetComponent<EnemyController>() != null)
+            try
             {
 
-                if (!other.gameObject.GetComponent<EnemyController>().isDestroyed)
+                if (other.gameObject.GetComponent<EnemyController>() != null)
                 {
-                    isDestroyed = true;
-                    EnemyEasyMaxScale(combinePowerUpMultiplier);
-                    Instantiate(pickUpEffect, transform.position, transform.rotation);
-                    Destroy(other.gameObject);
+
+                    if (!other.gameObject.GetComponent<EnemyController>().isDestroyed)
+                    {
+                        isDestroyed = true;
+                        EnemyEasyMaxScale(combinePowerUpMultiplier);
+                        Instantiate(pickUpEffect, transform.position, transform.rotation);
+                        Destroy(other.gameObject);
+                    }
                 }
+
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.LogError(e);
             }
 
-        }
-        catch (NullReferenceException e)
+            //If a bullet touches a enemy
+        } else if(other.tag == "Bullet")
         {
-            Debug.LogError(e);
-        }
+            Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        } 
+       
     }
 
     //Increases the enemy size

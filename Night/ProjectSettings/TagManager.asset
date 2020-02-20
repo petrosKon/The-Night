@@ -12,6 +12,8 @@ TagManager:
   - BottomPoint
   - Obstacle
   - Trap
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

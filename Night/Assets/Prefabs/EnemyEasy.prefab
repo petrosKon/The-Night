@@ -59,6 +59,8 @@ MonoBehaviour:
   lookRadius: 20
   pickUpEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
     type: 3}
+  particleDeathEffectEnemyPrefab: {fileID: 4946691145518096490, guid: cb71f08ade0c4e4449772fd2711ed3be,
+    type: 3}
 --- !u!195 &574050978291144309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -93,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 0
 --- !u!1001 &3022879223623118496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783563462218004, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
       propertyPath: m_TagString
-      value: EnemyEasy
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4215789226532830, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
       propertyPath: m_LocalPosition.x

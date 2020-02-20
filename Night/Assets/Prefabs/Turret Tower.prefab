@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5757851208864290914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2699465508964752629}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2699465508964752629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757851208864290914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00000031789153, y: 4.966667, z: 2.4333334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7454870107710381747}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5716050438581448814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26,8 +56,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  enemyEasyTag: EnemyEasy
+  fireRate: 1
+  enemyEasyTag: Enemy
   partToRotate: {fileID: 7454621400452818323}
+  turnSpeed: 10
+  bulletPrefab: {fileID: 5351657503641299908, guid: d6dbf5dcd4a64b448826b74ea17de81a,
+    type: 3}
+  firePoint: {fileID: 2699465508964752629}
 --- !u!1001 &7450389163442504165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,7 +72,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1582112111176492, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_Name
-      value: Turret Tower 03
+      value: Turret Tower
       objectReference: {fileID: 0}
     - target: {fileID: 1582112111176492, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -101,21 +136,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
 --- !u!1 &7449102854654569161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1582112111176492, guid: d1b1882db25d6fc4f8ff52b752db2e26,
+    type: 3}
+  m_PrefabInstance: {fileID: 7450389163442504165}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7454870107710381747 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26,
     type: 3}
   m_PrefabInstance: {fileID: 7450389163442504165}
   m_PrefabAsset: {fileID: 0}

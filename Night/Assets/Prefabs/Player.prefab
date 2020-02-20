@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4553295459546837827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.59967, y: 1, z: -42.05308}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4548728810605346541}
@@ -47,10 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 10
-  gravityScale: 1
-  animator: {fileID: 4495353164575556625}
   pivot: {fileID: 0}
   rotateSpeed: 10
+  animator: {fileID: 4495353164575556625}
   playerModel: {fileID: 4555261785115271465}
 --- !u!143 &4553295459546837828
 CharacterController:
