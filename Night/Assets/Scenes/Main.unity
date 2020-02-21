@@ -385,6 +385,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8446903276727170384, guid: 17086f067e601cc47bdd5e0f3bc6c574,
         type: 3}
+    - target: {fileID: 8703590838921894075, guid: c6dcfd442e4903344b08f84391e7b258,
+        type: 3}
+      propertyPath: playerRenderer
+      value: 
+      objectReference: {fileID: 860933665}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6dcfd442e4903344b08f84391e7b258, type: 3}
 --- !u!4 &143019649 stripped
@@ -695,6 +700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
+  - {fileID: 5157149164880787764, guid: 4249048eff757bf4b8f99d40e85ede2c, type: 3}
+  - {fileID: 4761125366842341034, guid: c5ed6b799c73b0a44be7c3a5a8b00a8a, type: 3}
   - {fileID: 5204905293769032932, guid: cbdfd7ca991ced24c9837ee807b1002a, type: 3}
   surface: {fileID: 1629640538}
 --- !u!1001 &303625948
@@ -10356,6 +10363,12 @@ MonoBehaviour:
   directionalLight: {fileID: 705507994}
   preset: {fileID: 11400000, guid: 4a133f4d8df6b5349a531cf4a649ecb0, type: 2}
   timeOfDay: 16
+--- !u!137 &860933665 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4528350092769123485, guid: f95a3ddd20c43d3418d606f94dffd6b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4553295459765750617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

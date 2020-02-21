@@ -48,7 +48,7 @@ public class GenerateObjects : MonoBehaviour
            
         }
 
-        while (pointCrystalCount < 50)
+        while (pointCrystalCount < 30)
         {
             preventSpawnOverlap();
             Instantiate(pointCrystal, new Vector3(xPos, crystalYSpawnPosition, zPos), Quaternion.identity);

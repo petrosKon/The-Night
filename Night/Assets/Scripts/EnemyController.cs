@@ -9,20 +9,17 @@ public class EnemyController : MonoBehaviour
     //determines in what radius the player is seen by the enemy
     public float lookRadius = 10f;
 
-    Transform target;
-    NavMeshAgent agent;
-    Animator enemyAnimator;
+    Transform target; //The player that the enemy is chasing
+    NavMeshAgent agent; //The agent that determines our enemy
+    Animator enemyAnimator; //animator for basic animations
     
     //determines and destroys one of the two enemy objects!!
     private bool isDestroyed;
 
    // [SerializeField]
-    private float timeOfDay;
-    //this bool shows if the enemy gets the power up boost at night
-    private bool enemyPowerUp = false;
-
-    //pick up effect
-    public GameObject pickUpEffect;
+    private float timeOfDay; //this is needed for the enemy power up   
+    private bool enemyPowerUp = false;  //this bool shows if the enemy gets the power up boost at night
+    public GameObject pickUpEffect; //pick up effect case an enemy touches each other
 
     //Static variables that we need in our code for the enemies!!!
     public static Vector3 finalEnemyScale = new Vector3(2f, 2f, 2f);
@@ -32,8 +29,6 @@ public class EnemyController : MonoBehaviour
     //Power up Multipliers
     public static float nightPowerUpMultiplier = 1.4f;
     public static float combinePowerUpMultiplier = 1.2f;
-
-    //Max enemy speed
     public static float maxEnemyEasySpeed = 8f;
 
     public GameObject particleDeathEffectEnemyPrefab;
@@ -151,7 +146,7 @@ public class EnemyController : MonoBehaviour
             }
 
             //If a bullet touches a enemy
-        } else if(other.tag == "Bullet")
+        } else if(other.tag == "Bullet" || other.tag == "PlayerMax")
         {
             Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);

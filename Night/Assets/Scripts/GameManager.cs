@@ -7,13 +7,14 @@ public class GameManager : MonoBehaviour
 {
     [Header("Variables")]
     public int currentPoints;
-    public TextMeshProUGUI pointsText;
-    public GameObject player;
-    public Renderer playerRenderer;
-    public GameObject particleDeathEffectPlayerPrefab;
-
-
-    public float invincibilityLength = 0f;
+    public TextMeshProUGUI pointsText; //our points display
+    public GameObject player; //our player
+    public Renderer playerRenderer;  //this is needed for material change and flickering
+    public Material playerStartingMaterial, playerPowerUpMaterial;  //change material case of player power up
+    public GameObject particleDeathEffectPlayerPrefab;   //spawn particles case of enemy death
+    public float invincibilityLength = 0f; //lenght of the invicibility in case of damage
+    public float maxPowerLength = 5f;  //length of the power up
+    private bool powerUp = false;  //determines if the player is powered up (reaches max scale) and prevents from flickering
     private float flashCounter;
     public float flashLength = 0.1f;
 
@@ -32,11 +33,35 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (invincibilityLength > 0f)
+        //This block of code makes the player capable of destroying emenies
+        if (IsPlayerMaxSize())
         {
             invincibilityLength -= Time.deltaTime;
 
-            if (playerRenderer != null) {
+            if (invincibilityLength <= 0)
+            {
+                //loses all his power
+                powerUp = false;
+
+                //loses the tag, need to lose because he will destroy again the enemies
+                player.gameObject.tag = "Player";
+
+                playerRenderer.material = playerStartingMaterial;
+
+                //this variables calculates the player size and returns him to the starting height
+                float playerSizeMultiplier = minPlayerScale.magnitude / player.transform.localScale.magnitude;
+                float playerSpeedMultiplier = maxPlayerSpeed / FindObjectOfType<PlayerController>().moveSpeed;
+
+                ScaleLerper(playerSizeMultiplier, playerSpeedMultiplier);
+            }
+        }
+        //This block of code flickers the player when he takes damage
+        else
+        {
+            invincibilityLength -= Time.deltaTime;
+
+            if (playerRenderer != null)
+            {
 
                 flashCounter -= Time.deltaTime;
                 if (flashCounter <= 0)
@@ -50,14 +75,37 @@ public class GameManager : MonoBehaviour
                     playerRenderer.enabled = true;
                 }
             }
-           
-        
+        }
+    }
+
+    //checks ig the player is max size!!
+    private bool IsPlayerMaxSize()
+    {
+        if(player != null)
+        {
+            if (player.transform.localScale == maxPlayerScale)
+            {
+                if (!powerUp)
+                {
+                    powerUp = true;
+
+                    //if the player is called playerMax then he can destroy enemies
+                    player.gameObject.tag = "PlayerMax";
+
+                    //the invicibility lasts for 5 seconds
+                    invincibilityLength = 5f;
+
+                    playerRenderer.material = playerPowerUpMaterial;
+
+                }
+
+                return true;
+
+            }
 
         }
-        else
-        {
-            invincibilityLength = 0f;
-        }
+
+        return false;
     }
 
     public void AddPoints(int pointsToAdd)
@@ -108,15 +156,12 @@ public class GameManager : MonoBehaviour
     //kills the player case the player doesn't have a power up star with him
     public void DamagePlayer()
     {
-        if (invincibilityLength == 0f)
+        if (invincibilityLength < 0f)
         {
             invincibilityLength = 3f;
 
             if (player.transform.localScale == minPlayerScale)
             {
-
-                FindObjectOfType<PlayerController>().animator.SetTrigger("Die");
-
                 Instantiate(particleDeathEffectPlayerPrefab, player.transform.position, Quaternion.identity);
 
                 Destroy(player.gameObject);
@@ -124,7 +169,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-
                 //this variables calculates the player size and returns him to the starting height
                 float playerSizeMultiplier = minPlayerScale.magnitude / player.transform.localScale.magnitude;
                 float playerSpeedMultiplier = maxPlayerSpeed / FindObjectOfType<PlayerController>().moveSpeed;
