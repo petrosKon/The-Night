@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.7197703, g: 0.6653415, b: 0.47192487, a: 1}
+  m_FogColor: {r: 0.89971286, g: 0.83167684, b: 0.5899061, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.97640145, g: 0.8789753, b: 0.02359855, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 0.9634641, b: 0.64166665, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -390,6 +390,16 @@ PrefabInstance:
       propertyPath: playerRenderer
       value: 
       objectReference: {fileID: 860933665}
+    - target: {fileID: 8703590838921894075, guid: c6dcfd442e4903344b08f84391e7b258,
+        type: 3}
+      propertyPath: playerPowerUpMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c13662d0b3071d46849b58955f08532, type: 2}
+    - target: {fileID: 8703590838921894075, guid: c6dcfd442e4903344b08f84391e7b258,
+        type: 3}
+      propertyPath: playerStartingMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f1779f0d8b6a05547af012556b3fd93a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6dcfd442e4903344b08f84391e7b258, type: 3}
 --- !u!4 &143019649 stripped
@@ -404,7 +414,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17056
+  m_Name: pb_Mesh17258
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -702,8 +712,11 @@ MonoBehaviour:
   levels:
   - {fileID: 5157149164880787764, guid: 4249048eff757bf4b8f99d40e85ede2c, type: 3}
   - {fileID: 4761125366842341034, guid: c5ed6b799c73b0a44be7c3a5a8b00a8a, type: 3}
+  - {fileID: 3985248756815784073, guid: b112158ecadbaec4daf1a059a453d624, type: 3}
   - {fileID: 5204905293769032932, guid: cbdfd7ca991ced24c9837ee807b1002a, type: 3}
   surface: {fileID: 1629640538}
+  mapWidth: 0
+  mapHeight: 0
 --- !u!1001 &303625948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10284,7 +10297,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 0.7519967, g: 0.7519967, b: 0.7519967, a: 1}
+  m_Color: {r: 0.8692411, g: 0.8692411, b: 0.8692411, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -10341,7 +10354,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.08418604, y: 0.2578342, z: -0.9622502, w: 0.022557585}
+  m_LocalRotation: {x: 0.07547914, y: 0.49809742, z: -0.8627299, w: 0.043577906}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10362,7 +10375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 705507994}
   preset: {fileID: 11400000, guid: 4a133f4d8df6b5349a531cf4a649ecb0, type: 2}
-  timeOfDay: 16
+  timeOfDay: 14
 --- !u!137 &860933665 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4528350092769123485, guid: f95a3ddd20c43d3418d606f94dffd6b9,
@@ -10756,7 +10769,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17140
+  m_Name: pb_Mesh17366
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15173,7 +15186,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17074
+  m_Name: pb_Mesh17276
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

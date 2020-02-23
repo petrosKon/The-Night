@@ -29,10 +29,10 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < mapHeight; i++)
         {
             levelLength += 50f;
-            GenerateTurretLevel(levelLength, levelWidthLength);
             mapWidth = Random.Range(3, 10);
             levelWidthLength = 0f;
             int randomTile = Random.Range(-50, 50);
+
             for (int j = 0; j < mapWidth; j++)
             {
                 GenerateTurretLevel(levelLength, Mathf.Sign(randomTile) * levelWidthLength);

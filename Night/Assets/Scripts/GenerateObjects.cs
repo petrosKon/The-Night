@@ -12,7 +12,7 @@ public class GenerateObjects : MonoBehaviour
     private int xPosTop,zPosTop;
     private int xPosBottom,zPosBottom;
     private int xPos, zPos;
-    private int enemyCount,pointCrystalCount,powerUpStarCount,flowerCount;
+    private int enemyCount,pointCrystalCount,powerUpStarCount;
 
     //we determine where the power ups are going to spawn!!
     private readonly float crystalYSpawnPosition = 1.3f;
@@ -25,7 +25,6 @@ public class GenerateObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         xPosTop = (int)TopPoint.position.x;
         zPosTop = (int)TopPoint.position.z;
 
@@ -33,38 +32,31 @@ public class GenerateObjects : MonoBehaviour
         zPosBottom = (int)BottomPoint.position.z;
 
         StartCoroutine(SpawnLevel());
-
     }
 
     IEnumerator SpawnLevel()
-    {
+    {      
         while (enemyCount < 5)
         {
-
-            preventSpawnOverlap();
-            Instantiate(theEnemy, new Vector3(xPos, 1f, zPos), Quaternion.identity);
-            enemyCount++;
-            
-           
-        }
-
+           preventSpawnOverlap();
+           Instantiate(theEnemy, new Vector3(xPos, 1f, zPos), Quaternion.identity);
+           enemyCount++;
+        }     
+      
         while (pointCrystalCount < 30)
         {
             preventSpawnOverlap();
             Instantiate(pointCrystal, new Vector3(xPos, crystalYSpawnPosition, zPos), Quaternion.identity);
-            pointCrystalCount++;
-            
+            pointCrystalCount++;           
         }
 
         while (powerUpStarCount < 3)
         {
-
             preventSpawnOverlap();
             Instantiate(powerUpStar, new Vector3(xPos, powerUpStarYSpawnPosition, zPos), Quaternion.identity);
             powerUpStarCount++;
         }
         
-
         yield return new WaitForSeconds(0f);
 
     }
@@ -89,12 +81,9 @@ public class GenerateObjects : MonoBehaviour
 
                 if (col.tag == "Obstacle")
                 {
-                    validPosition = false;                }
-
-
+                    validPosition = false;  
+                }
             }
         }
-    }
-        
-      
+    } 
 }

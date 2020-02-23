@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     [Header("Static Variables")]
     public static Vector3 maxPlayerScale = new Vector3(3f, 3f, 3f);
     public static Vector3 minPlayerScale = new Vector3(1.2f, 1.2f, 1.2f);
-    public static float minPlayerSpeed = 5f;
-    public static float maxPlayerSpeed = 10f;
+    public static float minPlayerSpeed = 6f;
+    public static float maxPlayerSpeed = 12f;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +96,8 @@ public class GameManager : MonoBehaviour
                     invincibilityLength = 5f;
 
                     playerRenderer.material = playerPowerUpMaterial;
+
+                    FindObjectOfType<PlayerController>().moveSpeed = maxPlayerSpeed;
 
                 }
 
