@@ -31,8 +31,6 @@ public class EnemyController : MonoBehaviour
     public static float combinePowerUpMultiplier = 1.2f;
     public static float maxEnemyEasySpeed = 8f;
 
-    public GameObject particleDeathEffectEnemyPrefab;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -145,11 +143,6 @@ public class EnemyController : MonoBehaviour
                 Debug.LogError(e);
             }
 
-            //If a bullet touches a enemy
-        } else if(other.tag == "Bullet" || other.tag == "PlayerMax")
-        {
-            Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
-            Destroy(gameObject);
         } 
        
     }

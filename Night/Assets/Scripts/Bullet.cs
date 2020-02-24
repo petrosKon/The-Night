@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
-    public float speed = 70f;
+    public float speed = 60f;
 
     public void Seek(Transform _target)
     {

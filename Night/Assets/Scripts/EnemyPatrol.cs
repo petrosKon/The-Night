@@ -57,7 +57,6 @@ public class EnemyPatrol : MonoBehaviour
                 waitTime -= Time.deltaTime;
                 animator.SetBool("Run", false);
             }
-        }
-       
+        }       
     }
 }

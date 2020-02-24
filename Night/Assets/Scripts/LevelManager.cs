@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
             for (int j = 0; j < mapWidth; j++)
             {
-                GenerateTurretLevel(levelLength, Mathf.Sign(randomTile) * levelWidthLength);
+                GenerateRandomLevel(levelLength, Mathf.Sign(randomTile) * levelWidthLength);
                 levelWidthLength += 50f;
                 Debug.Log("Before: " + levelWidthLength);
             }
@@ -54,12 +54,14 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void GenerateTurretLevel(float levelLength,float levelWidthLength)
+    public void GenerateRandomLevel(float levelLength,float levelWidthLength)
     {
+        //turret level is always the last level
         int turretLevel = levels.Length - 1;
+        int randomLevel = Random.Range(0, levels.Length - 1);
+
         if (Random.Range(0,10) != 9)
         {
-            int randomLevel = Random.Range(0, levels.Length - 1);
             Instantiate(levels[randomLevel], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
         }
         else

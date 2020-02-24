@@ -59,8 +59,6 @@ MonoBehaviour:
   lookRadius: 20
   pickUpEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
     type: 3}
-  particleDeathEffectEnemyPrefab: {fileID: 4946691145518096490, guid: cb71f08ade0c4e4449772fd2711ed3be,
-    type: 3}
 --- !u!195 &574050978291144309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -83,6 +81,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 3
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6372624925156132081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3023387078096289716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea07e9e80d5e5bd4fb3916faa1a584b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleDeathEffectEnemyPrefab: {fileID: 4946691145518096490, guid: cb71f08ade0c4e4449772fd2711ed3be,
+    type: 3}
 --- !u!114 &7367701997822042376
 MonoBehaviour:
   m_ObjectHideFlags: 0

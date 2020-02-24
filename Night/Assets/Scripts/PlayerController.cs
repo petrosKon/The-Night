@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public Transform pivot;
     public float rotateSpeed;
+    public GameObject particleDeathEffectPlayerPrefab;
 
     [Header("Unity Setup Fields")]
     private CharacterController characterController;
@@ -16,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject playerModel;
     private Vector3 moveDirection;
-
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +62,13 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
     
+        //this means that the player falls down
+        if(transform.position.y < 0f)
+        {
+            Instantiate(particleDeathEffectPlayerPrefab, gameObject.transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
        
         
     }
