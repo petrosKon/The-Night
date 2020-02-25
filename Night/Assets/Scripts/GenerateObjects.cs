@@ -8,11 +8,13 @@ public class GenerateObjects : MonoBehaviour
     public GameObject theEnemy;
     public GameObject pointCrystal;
     public GameObject powerUpStar;
+    public GameObject teleporter;
     public Transform TopPoint, BottomPoint;
     private int xPosTop,zPosTop;
     private int xPosBottom,zPosBottom;
     private int xPos, zPos;
-    private int enemyCount,pointCrystalCount,powerUpStarCount;
+    private int enemyCount,pointCrystalCount,powerUpStarCount,teleporterCount;
+    private int randomNumberTeleporters;
 
     //we determine where the power ups are going to spawn!!
     private readonly float crystalYSpawnPosition = 1.3f;
@@ -31,6 +33,8 @@ public class GenerateObjects : MonoBehaviour
         xPosBottom = (int)BottomPoint.position.x;
         zPosBottom = (int)BottomPoint.position.z;
 
+        randomNumberTeleporters = Random.Range(-1, 2);
+
         StartCoroutine(SpawnLevel());
     }
 
@@ -41,8 +45,15 @@ public class GenerateObjects : MonoBehaviour
            preventSpawnOverlap();
            Instantiate(theEnemy, new Vector3(xPos, 1f, zPos), Quaternion.identity);
            enemyCount++;
-        }     
-      
+        }
+
+        while (teleporterCount < randomNumberTeleporters)
+        {
+            preventSpawnOverlap();
+            Instantiate(teleporter, new Vector3(xPos, 1f, zPos), Quaternion.identity);
+            teleporterCount++;
+        }
+
         while (pointCrystalCount < 30)
         {
             preventSpawnOverlap();

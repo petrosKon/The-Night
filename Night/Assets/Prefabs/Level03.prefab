@@ -543,6 +543,7 @@ MonoBehaviour:
     type: 3}
   powerUpStar: {fileID: 6205130790239714356, guid: dd2acdf4ab3d1904891270f4b388f26d,
     type: 3}
+  teleporter: {fileID: 1620071135427400, guid: 19c412f8f5af8fa4dbe5adbf58d317e6, type: 3}
   TopPoint: {fileID: 1050332953895033708}
   BottomPoint: {fileID: 8142638716503453470}
   colliders: []
