@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public float flashLength = 0.1f;
 
     [Header("Static Variables")]
-    public static Vector3 maxPlayerScale = new Vector3(1.44f, 1.44f, 1.44f);
+    public static Vector3 maxPlayerScale = new Vector3(3f, 3f, 3f);
     public static Vector3 minPlayerScale = new Vector3(1.2f, 1.2f, 1.2f);
     public static float minPlayerSpeed = 6f;
     public static float maxPlayerSpeed = 12f;

@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - PlayerMax
   - Wooden Chest
+  - Teleport
   layers:
   - Default
   - TransparentFX
