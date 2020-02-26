@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject playerModel;
     private Vector3 moveDirection;
+    private static int MAX_JUMP = 1;
+    private int jumpCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,14 +40,27 @@ public class PlayerController : MonoBehaviour
         if (characterController.isGrounded)
         {
             UserInput();
-
             moveDirection.y = 0f;
+
             if (Input.GetButtonDown("Jump"))
             {
                 animator.SetTrigger("Jump");
                 moveDirection.y = jumpForce;
+                jumpCount++;
+                Debug.Log(jumpCount);
             }
+            jumpCount = 0;
 
+        }
+        //This section is for the double jump!!
+        else
+        {
+            if (Input.GetButtonDown("Jump") && jumpCount < MAX_JUMP)
+            {
+                animator.SetTrigger("Jump");
+                moveDirection.y = jumpForce;
+                jumpCount++;
+            }
         }
 
 

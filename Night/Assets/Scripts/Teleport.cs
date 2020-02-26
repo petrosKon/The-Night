@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public GameObject[] teleportortationDevices;
+    private GameObject[] teleportortationDevices;
     public Transform playerTransform;
     public float teleportationTime = 5f;    //prevents from teleporting within 5 seconds
 
@@ -12,7 +12,7 @@ public class Teleport : MonoBehaviour
     void Start()
     {
         teleportortationDevices = GameObject.FindGameObjectsWithTag("Teleport");
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;  
     }
 
      void Update()
@@ -25,10 +25,11 @@ public class Teleport : MonoBehaviour
         //creates serial teleportation devices
         if(other.tag == "Player")
         {
+            //the first object is always our teleporter!!ς
             int random = Random.Range(0, teleportortationDevices.Length);
             GameObject randomTeleporter = teleportortationDevices[random];
 
-                if(randomTeleporter != this.gameObject)
+            if (randomTeleporter != this.gameObject)
                 {
                     if (teleportationTime <= 0f)
                     {
@@ -37,8 +38,7 @@ public class Teleport : MonoBehaviour
                         teleportationTime = 5f;
                         other.GetComponent<CharacterController>().enabled = true;
                     }
-                }
-               
+                }               
             }                   
         }
     
