@@ -5,19 +5,39 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     private GameObject[] teleportortationDevices;
-    public Transform playerTransform;
-    public float teleportationTime = 5f;    //prevents from teleporting within 5 seconds
+    public GameObject player;
+    public static float teleportationTime = 5f;    //prevents from teleporting within 5 seconds
+    GameObject randomTeleporter;
 
     // Start is called before the first frame update
     void Start()
     {
         teleportortationDevices = GameObject.FindGameObjectsWithTag("Teleport");
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;  
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        int random = Random.Range(0, teleportortationDevices.Length);
+        Debug.Log(random);
+        randomTeleporter = teleportortationDevices[random];
+
+        //disable the emmision to show that the teleporter is inactive
+        if(randomTeleporter == this.gameObject)
+        {
+            //GetComponentInChildren<ParticleSystem>().gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 
      void Update()
     {
-        teleportationTime -= Time.deltaTime;
+        if(teleportationTime > 0f)
+        {
+            teleportationTime -= Time.deltaTime;
+
+        }
+        else
+        {
+            teleportationTime = 0f;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,21 +45,15 @@ public class Teleport : MonoBehaviour
         //creates serial teleportation devices
         if(other.tag == "Player")
         {
-            //the first object is always our teleporter!!ς
-            int random = Random.Range(0, teleportortationDevices.Length);
-            GameObject randomTeleporter = teleportortationDevices[random];
+           
 
-            if (randomTeleporter != this.gameObject)
-                {
                     if (teleportationTime <= 0f)
                     {
-                        other.GetComponent<CharacterController>().enabled = false;
-                        other.transform.position = randomTeleporter.transform.position;
+                         player.transform.position = randomTeleporter.transform.position;
                         teleportationTime = 5f;
-                        other.GetComponent<CharacterController>().enabled = true;
                     }
                 }               
-            }                   
+                              
         }
     
 }

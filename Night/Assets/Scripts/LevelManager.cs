@@ -30,16 +30,16 @@ public class LevelManager : MonoBehaviour
         {
             levelLength += 50f;
             mapWidth = Random.Range(3, 10);
-            levelWidthLength = 0f;
-            int randomTile = Random.Range(-50, 50);
+            //levelWidthLength = 0f;
+            //int randomTile = Random.Range(-50, 50);
 
             for (int j = 0; j < mapWidth; j++)
             {
-                GenerateRandomLevel(levelLength, Mathf.Sign(randomTile) * levelWidthLength);
+                GenerateRandomLevel(levelLength, levelWidthLength);
                 levelWidthLength += 50f;
                 Debug.Log("Before: " + levelWidthLength);
             }
-            levelWidthLength = Mathf.Sign(randomTile) * 50f  * Random.Range(3, mapWidth) ;
+            levelWidthLength = 50f  * Random.Range(3, mapWidth) ;
             Debug.Log("After: " + levelWidthLength);
 
         }

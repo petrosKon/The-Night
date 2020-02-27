@@ -163,4 +163,5 @@ public class EnemyController : MonoBehaviour
             agent.speed = maxEnemyEasySpeed;
         }
     }
+
 }

@@ -90,7 +90,7 @@ public class GenerateObjects : MonoBehaviour
             foreach (Collider col in colliders)
             {
 
-                if (col.tag == "Obstacle")
+                if (col.tag == "Obstacle" || col.tag == "Enemy")
                 {
                     validPosition = false;  
                 }

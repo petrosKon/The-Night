@@ -17,6 +17,7 @@ TagManager:
   - PlayerMax
   - Wooden Chest
   - Teleport
+  - Level
   layers:
   - Default
   - TransparentFX

@@ -39,8 +39,12 @@ public class EnemyPatrol : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position,moveSpot.position,speed * Time.deltaTime);
         Vector3 relativePos = moveSpot.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-        transform.rotation = rotation;
+        if(relativePos != Vector3.zero)
+        {
+            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+            transform.rotation = rotation;
+        }
+       
 
         //case of a simple chicken!!
         animator.SetBool("Run", true);
