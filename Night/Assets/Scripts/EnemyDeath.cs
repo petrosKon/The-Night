@@ -11,8 +11,9 @@ public class EnemyDeath : MonoBehaviour
         if(other.tag == "Bullet" || other.tag == "PlayerMax")
         {
             
-            Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
+           GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(clone,1.0f);
             
         }
     }

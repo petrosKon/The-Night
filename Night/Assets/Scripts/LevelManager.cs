@@ -7,11 +7,13 @@ public class LevelManager : MonoBehaviour
 {
     //premade levels
     public GameObject[] levels;
+    private GameObject[] tileMap;
+    public GameObject spawnLevel;
 
     //nav mesh surface in order to build the nav mesh in real time!!!!
     public NavMeshSurface surface;
 
-    private float levelLength = 0f; //we start at 0 and we quickly generate our map
+    private float levelLength = 50f; //we start at 0 and we quickly generate our map
     float levelWidthLength = 0f;
     public int mapWidth; //map width, Random
     public int mapHeight; //map height, Random
@@ -28,22 +30,35 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < mapHeight; i++)
         {
-            levelLength += 50f;
+            GenerateRandomLevel(levelLength, levelWidthLength);
             mapWidth = Random.Range(3, 10);
-            //levelWidthLength = 0f;
-            //int randomTile = Random.Range(-50, 50);
+            int randomTile = Random.Range(-50, 50);
 
             for (int j = 0; j < mapWidth; j++)
             {
+                levelWidthLength += Mathf.Sign(randomTile) * 50f;
                 GenerateRandomLevel(levelLength, levelWidthLength);
-                levelWidthLength += 50f;
                 Debug.Log("Before: " + levelWidthLength);
             }
-            levelWidthLength = 50f  * Random.Range(3, mapWidth) ;
+
+            levelWidthLength -= Mathf.Sign(randomTile) * 50f;
+            levelLength += 50f;
             Debug.Log("After: " + levelWidthLength);
 
         }
 
+        tileMap = GameObject.FindGameObjectsWithTag("Level");
+
+        //uncomment to fix random player spawn
+       /* foreach(GameObject tile in tileMap)
+        {
+            if(Random.Range(0,5) == 4)
+            {
+                Destroy(tile);
+                Instantiate(spawnLevel, tile.transform.position, Quaternion.identity);
+                break;
+            }
+        }*/
 
         surface.BuildNavMesh();
     }
@@ -57,17 +72,8 @@ public class LevelManager : MonoBehaviour
     public void GenerateRandomLevel(float levelLength, float levelWidthLength)
     {
         //turret level is always the last level      
-        int turretLevel = levels.Length - 1;
-        int randomLevel = Random.Range(0, levels.Length - 1);
+        int randomLevel = Random.Range(0, levels.Length);
+        Instantiate(levels[randomLevel], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
 
-        if (Random.Range(0, levels.Length) == turretLevel)
-        {
-            Instantiate(levels[turretLevel], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(levels[randomLevel], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
-
-        }
     }
 }

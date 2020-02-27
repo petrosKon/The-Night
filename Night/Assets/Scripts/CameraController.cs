@@ -23,6 +23,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (!useOffsetValues) {
             offset = target.position - transform.position;
         }
@@ -86,6 +87,24 @@ public class CameraController : MonoBehaviour
             }
 
             transform.LookAt(target);
-        } 
+        }
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+
+            if (!useOffsetValues)
+            {
+                offset = target.position - transform.position;
+            }
+
+            pivot.transform.position = target.transform.position;
+            //change the parent
+            // pivot.transform.parent = target.transform;
+            pivot.transform.parent = null;
+
+            //hides the cursor
+            Cursor.lockState = CursorLockMode.Locked;
+
+        }
     }
 }

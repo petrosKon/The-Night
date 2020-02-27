@@ -18,6 +18,7 @@ TagManager:
   - Wooden Chest
   - Teleport
   - Level
+  - Pivot
   layers:
   - Default
   - TransparentFX

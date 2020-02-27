@@ -49,6 +49,7 @@ MonoBehaviour:
   jumpForce: 10
   pivot: {fileID: 0}
   rotateSpeed: 10
+  particleDeathEffectPlayerPrefab: {fileID: 0}
   animator: {fileID: 4495353164575556625}
   playerModel: {fileID: 4555261785115271465}
 --- !u!143 &4553295459546837828
