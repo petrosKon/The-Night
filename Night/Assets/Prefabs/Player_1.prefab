@@ -24,7 +24,8 @@ PrefabInstance:
         type: 3}
       propertyPath: pivot
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3751046873038040634, guid: 8f3548ce3542ee44abf2bad516b19955,
+        type: 3}
     - target: {fileID: 4553295459546837826, guid: f95a3ddd20c43d3418d606f94dffd6b9,
         type: 3}
       propertyPath: jumpForce
@@ -59,7 +60,7 @@ PrefabInstance:
     - target: {fileID: 4553295459546837827, guid: f95a3ddd20c43d3418d606f94dffd6b9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4553295459546837828, guid: f95a3ddd20c43d3418d606f94dffd6b9,
         type: 3}

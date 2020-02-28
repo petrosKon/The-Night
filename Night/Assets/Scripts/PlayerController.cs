@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
     
         //this means that the player falls down
-        if(transform.position.y < 0f)
+        if(transform.position.y < -3f)
         {
             Instantiate(particleDeathEffectPlayerPrefab, gameObject.transform.position, Quaternion.identity);
 
@@ -101,7 +101,5 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Attack 02");
 
         }
-
- 
     }
 }

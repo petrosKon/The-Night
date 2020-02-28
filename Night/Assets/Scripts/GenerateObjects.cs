@@ -17,7 +17,9 @@ public class GenerateObjects : MonoBehaviour
     private int randomNumberTeleporters;
 
     //we determine where the power ups are going to spawn!!
-    private readonly float crystalYSpawnPosition = 1.3f;
+    private readonly float pointCrystalYSpawnPosition = 1.3f;
+    private readonly float enemyYSpawnPosition = 1f;
+    private readonly float teleporterYSpawnPosition = 1f;
     private readonly float powerUpStarYSpawnPosition = 1.4f;
 
     private float obstacleCheckRadius = 1f;
@@ -27,6 +29,7 @@ public class GenerateObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         xPosTop = (int)TopPoint.position.x;
         zPosTop = (int)TopPoint.position.z;
 
@@ -42,29 +45,26 @@ public class GenerateObjects : MonoBehaviour
     {      
         while (enemyCount < 5)
         {
-           preventSpawnOverlap();
-           Instantiate(theEnemy, new Vector3(xPos, 1f, zPos), Quaternion.identity);
+           preventSpawnOverlap(theEnemy, enemyYSpawnPosition);
            enemyCount++;
+           
         }
 
         while (teleporterCount < randomNumberTeleporters)
         {
-            preventSpawnOverlap();
-            Instantiate(teleporter, new Vector3(xPos, 1f, zPos), Quaternion.identity);
+            preventSpawnOverlap(teleporter,teleporterYSpawnPosition);
             teleporterCount++;
         }
 
         while (pointCrystalCount < 30)
         {
-            preventSpawnOverlap();
-            Instantiate(pointCrystal, new Vector3(xPos, crystalYSpawnPosition, zPos), Quaternion.identity);
+            preventSpawnOverlap(pointCrystal, pointCrystalYSpawnPosition);
             pointCrystalCount++;           
         }
 
         while (powerUpStarCount < 3)
         {
-            preventSpawnOverlap();
-            Instantiate(powerUpStar, new Vector3(xPos, powerUpStarYSpawnPosition, zPos), Quaternion.identity);
+            preventSpawnOverlap(powerUpStar, powerUpStarYSpawnPosition);
             powerUpStarCount++;
         }
         
@@ -72,9 +72,10 @@ public class GenerateObjects : MonoBehaviour
 
     }
 
-    private void preventSpawnOverlap()
+    private void preventSpawnOverlap(GameObject instatiatedObject,float spawnYPosition)
     {
         bool validPosition = false;
+        Vector3 randomPosition = new Vector3();
 
         while (!validPosition)
         {
@@ -82,7 +83,7 @@ public class GenerateObjects : MonoBehaviour
 
             xPos = Random.Range(xPosTop, xPosBottom);
             zPos = Random.Range(zPosBottom, zPosTop);
-            Vector3 randomPosition = new Vector3(xPos, 0f, zPos);
+            randomPosition = new Vector3(xPos, spawnYPosition, zPos);
 
             //we get the nearby colliders and if there is none around we spawn our object!!!
             colliders = Physics.OverlapSphere(randomPosition, obstacleCheckRadius);
@@ -96,5 +97,16 @@ public class GenerateObjects : MonoBehaviour
                 }
             }
         }
-    } 
+
+        if(instatiatedObject == pointCrystal || instatiatedObject == powerUpStar)
+        {
+            //spawns the prefabs with a rotation especially the crystals and the stars!!
+            Instantiate(instatiatedObject, randomPosition, Quaternion.Euler(270, 0, 0));
+        }
+        else{
+            //spawns the prefabs with a rotation especially the crystals and the stars!!
+            Instantiate(instatiatedObject, randomPosition, Quaternion.identity);
+        }
+    }
+        
 }

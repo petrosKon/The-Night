@@ -7,8 +7,6 @@ public class LevelManager : MonoBehaviour
 {
     //premade levels
     public GameObject[] levels;
-    private GameObject[] tileMap;
-    public GameObject spawnLevel;
 
     //nav mesh surface in order to build the nav mesh in real time!!!!
     public NavMeshSurface surface;
@@ -21,7 +19,7 @@ public class LevelManager : MonoBehaviour
      void Awake()
      {
           //random map height
-         mapHeight = Random.Range(3, 10);
+         mapHeight = Random.Range(5, 10);
      }
 
     // Start is called before the first frame update
@@ -31,7 +29,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < mapHeight; i++)
         {
             GenerateRandomLevel(levelLength, levelWidthLength);
-            mapWidth = Random.Range(3, 10);
+            mapWidth = Random.Range(5, 10);
             int randomTile = Random.Range(-50, 50);
 
             for (int j = 0; j < mapWidth; j++)
@@ -46,19 +44,6 @@ public class LevelManager : MonoBehaviour
             Debug.Log("After: " + levelWidthLength);
 
         }
-
-        tileMap = GameObject.FindGameObjectsWithTag("Level");
-
-        //uncomment to fix random player spawn
-       /* foreach(GameObject tile in tileMap)
-        {
-            if(Random.Range(0,5) == 4)
-            {
-                Destroy(tile);
-                Instantiate(spawnLevel, tile.transform.position, Quaternion.identity);
-                break;
-            }
-        }*/
 
         surface.BuildNavMesh();
     }

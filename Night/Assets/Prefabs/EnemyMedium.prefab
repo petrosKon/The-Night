@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd3844504a726c45aa85fd66337956f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 20
   pickUpEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
     type: 3}
 --- !u!114 &2002969171916792719
@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 0
 --- !u!1001 &4341706406645245399
 PrefabInstance:
   m_ObjectHideFlags: 0

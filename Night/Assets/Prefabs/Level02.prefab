@@ -319,7 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5157149164880787765}
   - component: {fileID: 5157149164880787770}
-  - component: {fileID: 1526827001170687320}
   m_Layer: 0
   m_Name: Level02
   m_TagString: Level
@@ -410,20 +409,6 @@ MonoBehaviour:
   TopPoint: {fileID: 7897213328661684439}
   BottomPoint: {fileID: 7371472223470990772}
   colliders: []
---- !u!64 &1526827001170687320
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5157149164880787764}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1001 &193140419571647685
 PrefabInstance:
   m_ObjectHideFlags: 0

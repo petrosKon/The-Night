@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public static Vector3 maxPlayerScale = new Vector3(3f, 3f, 3f);
     public static Vector3 minPlayerScale = new Vector3(1.2f, 1.2f, 1.2f);
     public static float minPlayerSpeed = 6f;
-    public static float maxPlayerSpeed = 12f;
+    public static float maxPlayerSpeed = 15f;
 
     // Start is called before the first frame update
     void Start()

@@ -100,6 +100,7 @@ MonoBehaviour:
   teleporter: {fileID: 1620071135427400, guid: 19c412f8f5af8fa4dbe5adbf58d317e6, type: 3}
   TopPoint: {fileID: 2109695462668188476}
   BottomPoint: {fileID: 1626669832841257330}
+  parentObject: {fileID: 3985248756815784073}
   colliders: []
 --- !u!1 &3985248757553467705
 GameObject:

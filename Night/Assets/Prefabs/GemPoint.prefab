@@ -154,12 +154,12 @@ PrefabInstance:
     - target: {fileID: 114000012140138052, guid: 6a7274aefcc6cef4fbbfba924cc7f657,
         type: 3}
       propertyPath: rotationAngle.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114000012140138052, guid: 6a7274aefcc6cef4fbbfba924cc7f657,
         type: 3}
       propertyPath: rotationAngle.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a7274aefcc6cef4fbbfba924cc7f657, type: 3}
