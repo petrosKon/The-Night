@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 471650}
   - component: {fileID: 9569300}
   - component: {fileID: 6308245628926010818}
+  - component: {fileID: 3732173722345046010}
   m_Layer: 0
   m_Name: Wooden_Chest
   m_TagString: Untagged
@@ -293,3 +294,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.02, y: 0.8, z: 1}
   m_Center: {x: -0.010725498, y: -0.011828661, z: 8.115253e-17}
+--- !u!114 &3732173722345046010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa559196a545c7f40ba2bc1bd7172a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
+    type: 3}

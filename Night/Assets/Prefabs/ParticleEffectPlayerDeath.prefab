@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8446903276727170386}
   - component: {fileID: 8446903276727170387}
   m_Layer: 0
-  m_Name: Player Death Effect
+  m_Name: ParticleEffectPlayerDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -975,8 +975,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 10
-        minScalar: 5
+        scalar: 50
+        minScalar: 20
         maxCurve:
           serializedVersion: 2
           m_Curve:

@@ -8,13 +8,22 @@ public class EnemyDeath : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet" || other.tag == "PlayerMax")
+        if(other.CompareTag("Bullet") || other.CompareTag("PlayerMax"))
         {
-            
-           GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(clone,1.0f);
             
+        }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag("ExplosionParticles"))
+        {
+            Destroy(gameObject);
+            GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
+            Destroy(clone, 1.0f);
         }
     }
 }

@@ -13,7 +13,7 @@ public class PowerUpPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player") || other.CompareTag("PlayerMax"))
         {
             FindObjectOfType<GameManager>().ScaleLerper(sizeIncreaseMultiplier, moveDecreaseMultiplier);
 

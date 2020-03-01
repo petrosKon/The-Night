@@ -19,6 +19,7 @@ TagManager:
   - Teleport
   - Level
   - Pivot
+  - ExplosionParticles
   layers:
   - Default
   - TransparentFX

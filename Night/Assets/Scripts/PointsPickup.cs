@@ -23,7 +23,7 @@ public class PointsPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player") || other.CompareTag("PlayerMax"))
         {
             FindObjectOfType<GameManager>().AddPoints(value);
 

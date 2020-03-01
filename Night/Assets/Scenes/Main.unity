@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.93117726, g: 0.86705875, b: 0.65043473, a: 1}
+  m_FogColor: {r: 0.7197703, g: 0.6653415, b: 0.47192487, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 0.99957514, b: 0.99583334, a: 1}
+  m_AmbientSkyColor: {r: 0.97640145, g: 0.8789753, b: 0.02359855, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.7315175, g: 0.682088, b: 0.69729966, a: 1}
+  m_IndirectSpecularColor: {r: 0.7253948, g: 0.674685, b: 0.6635991, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,7 +542,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 0.92786336, g: 0.92786336, b: 0.92786336, a: 1}
+  m_Color: {r: 0.7519967, g: 0.7519967, b: 0.7519967, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -599,7 +599,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.06914535, y: 0.60644484, z: -0.79033446, w: 0.053057086}
+  m_LocalRotation: {x: 0.08418604, y: 0.2578342, z: -0.9622502, w: 0.022557585}
   m_LocalPosition: {x: 99.5, y: 3, z: -6.2000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 705507994}
   preset: {fileID: 11400000, guid: 4a133f4d8df6b5349a531cf4a649ecb0, type: 2}
-  timeOfDay: 13
+  timeOfDay: 16
 --- !u!1 &706644531
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ Transform:
   - {fileID: 480500240}
   - {fileID: 1816659208}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &860933665 stripped
 SkinnedMeshRenderer:
@@ -737,12 +737,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.1980195, y: -0, z: -0, w: 0.9801981}
-  m_LocalPosition: {x: -7, y: 8.39, z: -53.24}
+  m_LocalPosition: {x: -151.16235, y: 102.40847, z: 25.35696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462644653}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 22.842001, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -869,7 +869,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8163262
+  m_Name: pb_Mesh-3256626
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1349,6 +1349,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8446903276727170384, guid: 17086f067e601cc47bdd5e0f3bc6c574,
         type: 3}
+    - target: {fileID: 4553295459546837826, guid: f95a3ddd20c43d3418d606f94dffd6b9,
+        type: 3}
+      propertyPath: explosionRedPrefab
+      value: 
+      objectReference: {fileID: 110790, guid: 0f75f6db4a318f54382e0c98b2226db8, type: 3}
     - target: {fileID: 4553295459546837827, guid: f95a3ddd20c43d3418d606f94dffd6b9,
         type: 3}
       propertyPath: m_Name

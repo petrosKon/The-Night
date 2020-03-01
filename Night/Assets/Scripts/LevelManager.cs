@@ -56,9 +56,16 @@ public class LevelManager : MonoBehaviour
 
     public void GenerateRandomLevel(float levelLength, float levelWidthLength)
     {
-        //turret level is always the last level      
-        int randomLevel = Random.Range(0, levels.Length);
-        Instantiate(levels[randomLevel], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
+        //turret level is always the last level    
+        int turrentLevelNumber = levels.Length - 1;
+        if (Random.Range(0, 10).Equals(9))
+        {
+            Instantiate(levels[turrentLevelNumber], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
+            return;
+
+        }
+        int randomLevelNumber = Random.Range(0, levels.Length);
+        Instantiate(levels[randomLevelNumber], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
 
     }
 }

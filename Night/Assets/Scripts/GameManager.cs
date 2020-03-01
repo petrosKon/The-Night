@@ -33,6 +33,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this means that the player falls off the edge!!
+        if(player != null)
+        {
+            if (player.transform.position.y < -3f)
+            {
+                Instantiate(particleDeathEffectPlayerPrefab, player.transform.position, Quaternion.identity);
+
+                Destroy(player);
+            }
+        }
+      
         //This block of code makes the player capable of destroying emenies
         if (IsPlayerMaxSize())
         {

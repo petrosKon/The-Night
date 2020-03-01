@@ -9,6 +9,7 @@ public class GenerateObjects : MonoBehaviour
     public GameObject pointCrystal;
     public GameObject powerUpStar;
     public GameObject teleporter;
+    public GameObject woodenChest;
     public Transform TopPoint, BottomPoint;
     private int xPosTop,zPosTop;
     private int xPosBottom,zPosBottom;
@@ -67,8 +68,13 @@ public class GenerateObjects : MonoBehaviour
             preventSpawnOverlap(powerUpStar, powerUpStarYSpawnPosition);
             powerUpStarCount++;
         }
+
+        if (Random.Range(0, 10).Equals(9))
+        {
+            preventSpawnOverlap(woodenChest, powerUpStarYSpawnPosition);
+        }
         
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(0.1f);
 
     }
 

@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     [Header("Attributes")]
     public float moveSpeed;
     public float jumpForce;
-    public Transform pivot;
+    public Transform pivot;                     //the point the player is about to rotate about
     public float rotateSpeed;
-    public GameObject particleDeathEffectPlayerPrefab;
+    public GameObject explosionRedPrefab;       //the explosion that is triggered
+    public int maxNumberOfExplosions = 2;           //num of explosions that the player is able to trigger
+    public int explosionCount = 0;                  //num of explosions that the player has triggered
 
     [Header("Unity Setup Fields")]
     private CharacterController characterController;
@@ -17,8 +19,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject playerModel;
     private Vector3 moveDirection;
-    private static int MAX_JUMP = 1;
-    private int jumpCount = 0;
+    private static readonly int MAX_JUMP = 1;       //determine the max number of jumps
+    private int jumpCount = 0;                      //determine the current number of jumps
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,6 @@ public class PlayerController : MonoBehaviour
 
         if (characterController.isGrounded)
         {
-            UserInput();
             moveDirection.y = 0f;
 
             if (Input.GetButtonDown("Jump"))
@@ -63,6 +64,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        UserInput();
+
 
         moveDirection.y = moveDirection.y + (Physics.gravity.y * Time.deltaTime * gravityScale);
         characterController.Move(moveDirection * Time.deltaTime);
@@ -77,15 +80,6 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
     
-        //this means that the player falls down
-        if(transform.position.y < -3f)
-        {
-            Instantiate(particleDeathEffectPlayerPrefab, gameObject.transform.position, Quaternion.identity);
-
-            Destroy(gameObject);
-        }
-       
-        
     }
 
     private void UserInput()
@@ -93,13 +87,18 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            animator.SetTrigger("Attack 01");
-
+            //animator.SetTrigger("Attack 01");
+           
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            animator.SetTrigger("Attack 02");
-
+            // animator.SetTrigger("Attack 02");
+            if(explosionCount < maxNumberOfExplosions)
+            {
+                GameObject clone = Instantiate(explosionRedPrefab, playerModel.transform.position, Quaternion.identity);
+                Destroy(clone, 0.3f);
+                explosionCount++;
+            }
         }
     }
 }
