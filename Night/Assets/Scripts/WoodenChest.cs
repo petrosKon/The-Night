@@ -9,8 +9,8 @@ public class WoodenChest : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            FindObjectOfType<PlayerController>().maxNumberOfExplosions++;
-            FindObjectOfType<PlayerController>().explosionCount = 0;
+            FindObjectOfType<PlayerAttack>().maxNumberOfExplosions++;
+            FindObjectOfType<PlayerAttack>().explosionCount = 0;
             Instantiate(pickupEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }

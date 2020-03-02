@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     [Header("Variables")]
     public int currentPoints;
     public TextMeshProUGUI pointsText; //our points display
+
+    [Header("Player Variables")]
     public GameObject player; //our player
     public Renderer playerRenderer;  //this is needed for material change and flickering
     public Material playerStartingMaterial, playerPowerUpMaterial;  //change material case of player power up

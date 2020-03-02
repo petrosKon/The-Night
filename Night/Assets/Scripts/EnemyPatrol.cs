@@ -29,7 +29,7 @@ public class EnemyPatrol : MonoBehaviour
 
 
         moveSpot = new GameObject().transform;
-        moveSpot.position = new Vector3(Random.Range(minX, maxX),1f, Random.Range(minΖ, maxΖ));
+        moveSpot.position = new Vector3(Random.Range(minX, maxX),0f, Random.Range(minΖ, maxΖ));
 
         animator = GetComponent<Animator>();
     }
@@ -53,7 +53,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             if(waitTime <= 0)
             {
-                moveSpot.position = new Vector3(Random.Range(minX, maxX), 1f, Random.Range(minΖ, maxΖ));
+                moveSpot.position = new Vector3(Random.Range(minX, maxX), 0f, Random.Range(minΖ, maxΖ));
                 waitTime = startWaitingTime;
             }
             else

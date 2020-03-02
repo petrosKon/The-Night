@@ -43,17 +43,16 @@ public class Teleport : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //creates serial teleportation devices
-        if(other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-           
-
-                    if (teleportationTime <= 0f)
-                    {
-                         player.transform.position = randomTeleporter.transform.position;
-                        teleportationTime = 5f;
-                    }
-                }               
-                              
-        }
-    
+            if (player != null)
+            {
+                if (teleportationTime <= 0f)
+                {
+                    player.transform.position = randomTeleporter.transform.position;
+                    teleportationTime = 5f;
+                }
+            }
+        }                            
+    }   
 }

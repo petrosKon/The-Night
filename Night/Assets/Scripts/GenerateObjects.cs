@@ -18,10 +18,10 @@ public class GenerateObjects : MonoBehaviour
     private int randomNumberTeleporters;
 
     //we determine where the power ups are going to spawn!!
-    private readonly float pointCrystalYSpawnPosition = 1.3f;
-    private readonly float enemyYSpawnPosition = 1f;
-    private readonly float teleporterYSpawnPosition = 1f;
-    private readonly float powerUpStarYSpawnPosition = 1.4f;
+    private readonly float pointCrystalYSpawnPosition = 0.3f;
+    private readonly float enemyYSpawnPosition = 0f;
+    private readonly float teleporterYSpawnPosition = 0f;
+    private readonly float powerUpStarYSpawnPosition = 0.4f;
 
     private float obstacleCheckRadius = 1f;
 

@@ -9,9 +9,6 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public Transform pivot;                     //the point the player is about to rotate about
     public float rotateSpeed;
-    public GameObject explosionRedPrefab;       //the explosion that is triggered
-    public int maxNumberOfExplosions = 2;           //num of explosions that the player is able to trigger
-    public int explosionCount = 0;                  //num of explosions that the player has triggered
 
     [Header("Unity Setup Fields")]
     private CharacterController characterController;
@@ -64,8 +61,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        UserInput();
-
 
         moveDirection.y = moveDirection.y + (Physics.gravity.y * Time.deltaTime * gravityScale);
         characterController.Move(moveDirection * Time.deltaTime);
@@ -82,23 +77,4 @@ public class PlayerController : MonoBehaviour
     
     }
 
-    private void UserInput()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            //animator.SetTrigger("Attack 01");
-           
-        }
-        else if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            // animator.SetTrigger("Attack 02");
-            if(explosionCount < maxNumberOfExplosions)
-            {
-                GameObject clone = Instantiate(explosionRedPrefab, playerModel.transform.position, Quaternion.identity);
-                Destroy(clone, 0.3f);
-                explosionCount++;
-            }
-        }
-    }
 }
