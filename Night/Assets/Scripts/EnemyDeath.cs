@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
+    [Header("Particles")]
     public GameObject particleDeathEffectEnemyPrefab;
 
     private void OnTriggerEnter(Collider other)

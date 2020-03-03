@@ -11,29 +11,29 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("FireBreathing Variables")]
     public GameObject flamethrower;                //the explosion that is triggered
-    public float maxFlamethrowerSeconds = -2f;           //num of explosions that the player is able to trigger
-    public float currentFlamethrowerSeconds = 0f;       //num of explosions that the player has triggered
+    public float flamethrowerActiveTime = 1f;           //num of explosions that the player is able to trigger
+    public float flamethrowerCooldown = 0f;       //num of explosions that the player has triggered
+    public float maxCooldownSeconds = 5f;
 
     [Header("Boximon")]
     [SerializeField]
     private GameObject boximonGameObject;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentFlamethrowerSeconds = maxFlamethrowerSeconds;
-    }
 
     // Update is called once per frame
     void Update()
     {
         Attack();
 
-        currentFlamethrowerSeconds -= Time.deltaTime;
-        if(currentFlamethrowerSeconds <= 0f)
+        if(flamethrowerCooldown >= 0f)
         {
-            flamethrower.SetActive(false);
+            flamethrowerCooldown -= Time.deltaTime;
 
+            //Calculate one second after the fire breathing is fired
+            if(flamethrowerCooldown < maxCooldownSeconds - flamethrowerActiveTime)
+            {
+                flamethrower.SetActive(false);
+            }
         }
 
     }
@@ -43,13 +43,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {     
-            //animator.SetTrigger("Attack 01");
-            if (Mathf.Abs(currentFlamethrowerSeconds) >= maxFlamethrowerSeconds)
+            if(flamethrowerCooldown <= 0f)
             {
                 flamethrower.SetActive(true);
-                currentFlamethrowerSeconds = 2f;
+                flamethrowerCooldown = maxCooldownSeconds;
             }
-
+        
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
