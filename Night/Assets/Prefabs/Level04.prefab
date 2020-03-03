@@ -91,8 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4065617b304f4194da2d2d2603ada92c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theEnemy: {fileID: 3023387078096289716, guid: b5670523e6aa4e2479e54e0334f21d6c,
-    type: 3}
+  enemies:
+  - {fileID: 3023387078096289716, guid: b5670523e6aa4e2479e54e0334f21d6c, type: 3}
+  - {fileID: 4343128856011709247, guid: b518038b35552da4483d6b95e7e67fc6, type: 3}
+  - {fileID: 3720520814284228087, guid: 511cf01157385f2498dd24ba47e9d337, type: 3}
   pointCrystal: {fileID: 7174635306536957879, guid: ec2e195fa36ddfa48953b78b3a6595a8,
     type: 3}
   powerUpStar: {fileID: 6205130790239714356, guid: dd2acdf4ab3d1904891270f4b388f26d,

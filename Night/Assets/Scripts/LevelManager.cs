@@ -6,8 +6,10 @@ using UnityEngine.AI;
 public class LevelManager : MonoBehaviour
 {
     //premade levels
+    [Header("Levels")]
     public GameObject[] levels;
 
+    [Header("Navigation Surface")]
     //nav mesh surface in order to build the nav mesh in real time!!!!
     public NavMeshSurface surface;
 

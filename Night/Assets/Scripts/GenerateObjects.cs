@@ -5,12 +5,23 @@ using UnityEngine.AI;
 
 public class GenerateObjects : MonoBehaviour
 {
-    public GameObject theEnemy;
+    [Header("Enemies")]
+    public GameObject[] enemies;
+
+    [Header("PickUp Items")]
     public GameObject pointCrystal;
     public GameObject powerUpStar;
+
+    [Header("Teleporter")]
     public GameObject teleporter;
+
+    [Header("Chests")]
     public GameObject woodenChest;
+
+    [Header("Limits")]
     public Transform TopPoint, BottomPoint;
+
+    [Header("Variables")]
     private int xPosTop,zPosTop;
     private int xPosBottom,zPosBottom;
     private int xPos, zPos;
@@ -46,7 +57,7 @@ public class GenerateObjects : MonoBehaviour
     {      
         while (enemyCount < 5)
         {
-           preventSpawnOverlap(theEnemy, enemyYSpawnPosition);
+           preventSpawnOverlap(enemies[Random.Range(0,enemies.Length)], enemyYSpawnPosition);
            enemyCount++;
            
         }

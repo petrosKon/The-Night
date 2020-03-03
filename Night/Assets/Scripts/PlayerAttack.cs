@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Explosion Variables")]
-    public GameObject explosionRedPrefab;       //the explosion that is triggered
+    public GameObject explosionRedPrefab;           //the explosion that is triggered
     public int maxNumberOfExplosions = 2;           //num of explosions that the player is able to trigger
     public int explosionCount = 0;                  //num of explosions that the player has triggered
 
     [Header("FireBreathing Variables")]
-    public GameObject flamethrowerPrefab;       //the explosion that is triggered
-    public float maxFlamethrowerSeconds = 2f;           //num of explosions that the player is able to trigger
-    public float currentFlamethrowerSeconds = 0f;                  //num of explosions that the player has triggered
+    public GameObject flamethrower;                //the explosion that is triggered
+    public float maxFlamethrowerSeconds = -2f;           //num of explosions that the player is able to trigger
+    public float currentFlamethrowerSeconds = 0f;       //num of explosions that the player has triggered
 
     [Header("Boximon")]
     [SerializeField]
@@ -29,13 +29,11 @@ public class PlayerAttack : MonoBehaviour
     {
         Attack();
 
-        if(currentFlamethrowerSeconds <= 2f)
+        currentFlamethrowerSeconds -= Time.deltaTime;
+        if(currentFlamethrowerSeconds <= 0f)
         {
-            currentFlamethrowerSeconds += Time.deltaTime;
-        }
-        else
-        {
-            currentFlamethrowerSeconds = 2f;
+            flamethrower.SetActive(false);
+
         }
 
     }
@@ -44,16 +42,12 @@ public class PlayerAttack : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-           
+        {     
             //animator.SetTrigger("Attack 01");
-            if (currentFlamethrowerSeconds == maxFlamethrowerSeconds)
+            if (Mathf.Abs(currentFlamethrowerSeconds) >= maxFlamethrowerSeconds)
             {
-                GameObject clone = Instantiate(flamethrowerPrefab, boximonGameObject.transform.position, Quaternion.identity);
-                clone.transform.parent = boximonGameObject.transform;
-                currentFlamethrowerSeconds = -5f;
-                Destroy(clone, 2f);
-
+                flamethrower.SetActive(true);
+                currentFlamethrowerSeconds = 2f;
             }
 
         }
