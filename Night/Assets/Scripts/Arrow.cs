@@ -23,7 +23,7 @@ public class Arrow : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-        if(transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
+        if (transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
         {
             DestroyProjectile();
         }
@@ -31,7 +31,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Obstacle"))
         {
             DestroyProjectile();
         }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3374656}
   - component: {fileID: 2376040}
   - component: {fileID: -3533007474154786804}
-  - component: {fileID: 932340764126174216}
   - component: {fileID: -6896256300805605315}
+  - component: {fileID: 6631085184564535595}
   m_Layer: 0
   m_Name: Arrow-Blue
   m_TagString: Enemy
@@ -96,19 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!65 &932340764126174216
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123664}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.08580528, y: 0.40256825, z: 0.06598878}
-  m_Center: {x: -0.0000001527369, y: 0.00000005960466, z: -0.00000049732637}
 --- !u!114 &-6896256300805605315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +108,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &6631085184564535595
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.04290264
+  m_Height: 0.40256825
+  m_Direction: 1
+  m_Center: {x: -0.0000001527369, y: 0.00000005960466, z: -0.00000049732637}
 --- !u!1 &165330
 GameObject:
   m_ObjectHideFlags: 0

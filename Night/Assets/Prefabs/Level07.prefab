@@ -6518,12 +6518,13 @@ GameObject:
   - component: {fileID: 4764077743462779404}
   - component: {fileID: 5525089239607279387}
   - component: {fileID: 5661053665445730404}
+  - component: {fileID: 5560628185685801340}
   m_Layer: 0
   m_Name: HalfCube (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3292441474007258782
 Transform:
@@ -6533,7 +6534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4517537658327472339}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 49.9, y: 0, z: -4.9}
+  m_LocalPosition: {x: 50, y: 0, z: -4.9}
   m_LocalScale: {x: 0.9, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5286067750493432602}
@@ -6814,6 +6815,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!65 &5560628185685801340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517537658327472339}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 50.00001, y: 10, z: 10.000002}
+  m_Center: {x: 25.000006, y: 5, z: -5.000001}
 --- !u!1 &5286067750493432601
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,12 +6894,13 @@ GameObject:
   - component: {fileID: 6901794758780923833}
   - component: {fileID: 4444126215215770406}
   - component: {fileID: 3888525703500367718}
+  - component: {fileID: 4886200093734131999}
   m_Layer: 0
   m_Name: HalfCube
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2775579376186500585
 Transform:
@@ -7176,6 +7191,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!65 &4886200093734131999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603474706577527462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 50, y: 10, z: 10}
+  m_Center: {x: 25, y: 5, z: -5}
 --- !u!1 &8458918859296340542
 GameObject:
   m_ObjectHideFlags: 0
