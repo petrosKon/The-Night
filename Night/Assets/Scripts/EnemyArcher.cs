@@ -58,7 +58,9 @@ public class EnemyArcher : MonoBehaviour
                 if (timeBtwShots <= 0)
                 {
                     LookWhereYouShoot();
-                    Instantiate(projectile, transform.position, transform.rotation);
+                    GameObject clone = Instantiate(projectile, transform.position, transform.rotation);
+                    //rotate the arrow to match the firing point of our player!
+                    clone.transform.Rotate(new Vector3(0f,-90f,90f));
                     this.GetComponent<Animator>().SetBool("Arrow Attack", true);
                     timeBtwShots = startTimeBtwShots;
                 }
@@ -66,10 +68,8 @@ public class EnemyArcher : MonoBehaviour
                 {
                     timeBtwShots -= Time.deltaTime;
                 }
-            }
-           
+            }   
         }
-      
     }
 
     void LookWhereYouShoot()

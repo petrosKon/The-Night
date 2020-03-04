@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemySpider : MonoBehaviour
 {
     //determines in what radius the player is seen by the enemy
     public float lookRadius = 10f;
@@ -125,10 +125,10 @@ public class EnemyController : MonoBehaviour
             try
             {
 
-                if (other.gameObject.GetComponent<EnemyController>() != null)
+                if (other.gameObject.GetComponent<EnemySpider>() != null)
                 {
 
-                    if (!other.gameObject.GetComponent<EnemyController>().isDestroyed)
+                    if (!other.gameObject.GetComponent<EnemySpider>().isDestroyed)
                     {
                         isDestroyed = true;
                         EnemyEasyMaxScale(combinePowerUpMultiplier);
