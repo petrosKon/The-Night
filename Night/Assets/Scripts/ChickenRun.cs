@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class ChickenRun : MonoBehaviour
 {
     public float speed;
     private float waitTime;

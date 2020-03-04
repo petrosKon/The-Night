@@ -27,4 +27,14 @@ public class EnemyDeath : MonoBehaviour
             Destroy(clone, 1.0f);
         }
     }
+
+    private void Update()
+    {
+        if(transform.position.y < -3f)
+        {
+            Destroy(gameObject);
+            GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
+            Destroy(clone, 1.0f);
+        }
+    }
 }
