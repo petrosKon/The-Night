@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 3875911209914246858}
   - component: {fileID: 3875911209914246837}
   - component: {fileID: 3875911209914246836}
-  - component: {fileID: -4001313659748537659}
   m_Layer: 0
-  m_Name: PickUpEffect
+  m_Name: ParticleEffectPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4812,16 +4811,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &-4001313659748537659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3875911209914246839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a34033b92e9a04b89e2b173624d096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 1.2

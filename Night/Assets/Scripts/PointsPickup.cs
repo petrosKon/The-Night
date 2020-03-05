@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class PointsPickup : MonoBehaviour
 { 
+    [Header("Points")]
     public int value;
 
+    [Header("Particle Effect")]
     public GameObject pickupEffect;
     // Start is called before the first frame update
     void Start()
@@ -27,9 +29,11 @@ public class PointsPickup : MonoBehaviour
         {
             FindObjectOfType<GameManager>().AddPoints(value);
 
-            Instantiate(pickupEffect, transform.position,transform.rotation);
+            GameObject clone = Instantiate(pickupEffect, transform.position,transform.rotation);
 
             Destroy(gameObject);
+
+            Destroy(clone, 0.2f);
         }
     }
 }

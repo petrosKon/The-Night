@@ -17,6 +17,7 @@ public class Turret : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
+    [Header("GameObjects")]
     public GameObject bulletPrefab;
     public Transform firePoint;
 

@@ -13,18 +13,18 @@ public class EnemyDeath : MonoBehaviour
         {
             Destroy(gameObject);
             GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
-            Destroy(clone,1.0f);
+            Destroy(clone, 0.2f);
             
         }
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("ExplosionParticles"))
+        if (other.CompareTag("ExplosionParticles") || other.CompareTag("PlantFlamethrower"))
         {
             Destroy(gameObject);
             GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
-            Destroy(clone, 1.0f);
+            Destroy(clone, 0.2f);
         }
     }
 
@@ -34,7 +34,7 @@ public class EnemyDeath : MonoBehaviour
         {
             Destroy(gameObject);
             GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
-            Destroy(clone, 1.0f);
+            Destroy(clone, 0.2f);
         }
     }
 }

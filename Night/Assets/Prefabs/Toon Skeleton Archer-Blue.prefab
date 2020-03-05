@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea07e9e80d5e5bd4fb3916faa1a584b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleDeathEffectEnemyPrefab: {fileID: 4946691145518096490, guid: cb71f08ade0c4e4449772fd2711ed3be,
+  particleDeathEffectEnemyPrefab: {fileID: 8772061447303181079, guid: ac2babb787ed5124ba42efa974e9165d,
     type: 3}
 --- !u!114 &1037808774
 MonoBehaviour:

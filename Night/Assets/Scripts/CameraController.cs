@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Transformations")]
     public Transform target;
-
     public Vector3 offset;
-
     public bool useOffsetValues;
-
     public float rotateSpeed;
 
     //The point where the camera is going to turn around
     public Transform pivot;
 
+    [Header("Angles")]
     public float maxViewAngle;
     public float minViewAngle;
 

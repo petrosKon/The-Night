@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
+    [Header("GameObjects")]
     private GameObject[] teleportortationDevices;
     public GameObject player;
-    public static float teleportationTime = 5f;    //prevents from teleporting within 5 seconds
     GameObject randomTeleporter;
+
+    public static float teleportationTime = 5f;    //prevents from teleporting within 5 seconds
 
     // Start is called before the first frame update
     void Start()

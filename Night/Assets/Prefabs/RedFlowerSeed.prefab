@@ -23,7 +23,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012946874890, guid: 586acbe765df7c34385298970076297e, type: 3}
       propertyPath: m_Name
-      value: MagnetPowerUp
+      value: RedFlowerSeed
       objectReference: {fileID: 0}
     - target: {fileID: 4000013718473930, guid: 586acbe765df7c34385298970076297e, type: 3}
       propertyPath: m_LocalPosition.x

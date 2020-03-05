@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    [Header("Variables")]
     public float speed;
+
+    [Header("Particle Effect")]
+    public GameObject particleEffectArrow;
 
     private Transform player;
     private Vector3 target;
@@ -31,7 +35,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Obstacle"))
+        if (other.CompareTag("Player") || other.CompareTag("Obstacle") || other.CompareTag("ExplosionParticles"))
         {
             DestroyProjectile();
         }
@@ -41,5 +45,8 @@ public class Arrow : MonoBehaviour
     {
         Destroy(gameObject);
 
+        GameObject clone = Instantiate(particleEffectArrow, transform.position, Quaternion.identity);
+
+        Destroy(clone, 0.2f);
     }
 }

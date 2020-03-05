@@ -7,18 +7,22 @@ using UnityEngine.AI;
 public class EnemySpider : MonoBehaviour
 {
     //determines in what radius the player is seen by the enemy
+    [Header("Player Detection Radius")]
     public float lookRadius = 10f;
 
     Transform target; //The player that the enemy is chasing
     NavMeshAgent agent; //The agent that determines our enemy
     Animator enemyAnimator; //animator for basic animations
-    
+    LightingManager lightingManager; //this variable is needed in order to access the hour of day!!
+
     //determines and destroys one of the two enemy objects!!
     private bool isDestroyed;
 
    // [SerializeField]
     private float timeOfDay; //this is needed for the enemy power up   
     private bool enemyPowerUp = false;  //this bool shows if the enemy gets the power up boost at night
+
+    [Header("Particle Effect")]
     public GameObject pickUpEffect; //pick up effect case an enemy touches each other
 
     //Static variables that we need in our code for the enemies!!!
@@ -37,9 +41,7 @@ public class EnemySpider : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
-        timeOfDay = FindObjectOfType<LightingManager>().timeOfDay;
-
-       
+        lightingManager = FindObjectOfType<LightingManager>();
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class EnemySpider : MonoBehaviour
 
         EnemyMovement();
 
-        PowerUpEnemies();
+        NightPowerUp();
     }
 
     //enemy movement to follow the player
@@ -78,13 +80,11 @@ public class EnemySpider : MonoBehaviour
     }
 
     //enemy power up during night time hours
-    private void PowerUpEnemies()
+    private void NightPowerUp()
     {
-        timeOfDay += Time.deltaTime * 0.2f;
-        timeOfDay %= 24;
-
+        float currentTime = lightingManager.timeOfDay;
         //Night Enters
-        if (timeOfDay <= 6 || timeOfDay >= 19)
+        if (currentTime <= 6 || currentTime >= 19)
         {
             if (!enemyPowerUp)
             {
@@ -132,8 +132,9 @@ public class EnemySpider : MonoBehaviour
                     {
                         isDestroyed = true;
                         EnemyEasyMaxScale(combinePowerUpMultiplier);
-                        Instantiate(pickUpEffect, transform.position, transform.rotation);
+                        GameObject clone = Instantiate(pickUpEffect, transform.position, transform.rotation);
                         Destroy(other.gameObject);
+                        Destroy(clone, 0.2f);
                     }
                 }
 

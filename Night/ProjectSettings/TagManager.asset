@@ -20,6 +20,7 @@ TagManager:
   - Level
   - Pivot
   - ExplosionParticles
+  - PlantFlamethrower
   layers:
   - Default
   - TransparentFX

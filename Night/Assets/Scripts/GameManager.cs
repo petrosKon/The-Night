@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     public static float minPlayerSpeed = 6f;
     public static float maxPlayerSpeed = 15f;
 
+    public static float destroyParticleEffectTime = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -195,7 +197,16 @@ public class GameManager : MonoBehaviour
                 flashCounter = flashLength;
 
             }
-        }
-           
+        }        
+    }
+
+
+    //destroys the player independant of power ups
+    public void KillPlayer()
+    {
+        Instantiate(particleDeathEffectPlayerPrefab, player.transform.position, Quaternion.identity);
+
+        Destroy(player.gameObject);
+
     }
 }

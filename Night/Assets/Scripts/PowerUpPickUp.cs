@@ -22,9 +22,12 @@ public class PowerUpPickUp : MonoBehaviour
             //uncomment if you want to add life to the player
             //FindObjectOfType<HealthManager>().HealPlayer(healAmount);
 
-            Instantiate(pickupEffect, transform.position, transform.rotation);
+           GameObject clone = Instantiate(pickupEffect, transform.position, transform.rotation);
 
             Destroy(gameObject);
+
+            Destroy(clone, 0.2f);
+
         }
     }
 }
