@@ -60,12 +60,21 @@ public class LevelManager : MonoBehaviour
     {
         //turret level is always the last level    
         int turrentLevelNumber = levels.Length - 1;
-        if (Random.Range(0, 10).Equals(9))
+        //piranha plant level
+        int piranhaPlantLevelNumber = levels.Length - 2;
+        int randomNumber = Random.Range(0, 10);
+        if (randomNumber.Equals(9))
         {
             Instantiate(levels[turrentLevelNumber], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
             return;
 
+        } else if (randomNumber.Equals(8))
+        {
+            Instantiate(levels[piranhaPlantLevelNumber], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
+            return;
         }
+
+       
         int randomLevelNumber = Random.Range(0, levels.Length);
         Instantiate(levels[randomLevelNumber], new Vector3(levelLength, 0f, levelWidthLength), Quaternion.identity);
 

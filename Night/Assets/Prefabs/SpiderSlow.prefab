@@ -95,18 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleDeathEffectEnemyPrefab: {fileID: 4946691145518096490, guid: cb71f08ade0c4e4449772fd2711ed3be,
     type: 3}
---- !u!114 &7367701997822042376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3023387078096289716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3022879223623118496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,7 +104,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1783563462218004, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
       propertyPath: m_Name
-      value: EnemyEasy
+      value: SpiderSlow
       objectReference: {fileID: 0}
     - target: {fileID: 1783563462218004, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
       propertyPath: m_TagString

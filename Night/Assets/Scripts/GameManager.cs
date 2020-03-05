@@ -204,9 +204,8 @@ public class GameManager : MonoBehaviour
     //destroys the player independant of power ups
     public void KillPlayer()
     {
-        Instantiate(particleDeathEffectPlayerPrefab, player.transform.position, Quaternion.identity);
-
         Destroy(player.gameObject);
 
+        Instantiate(particleDeathEffectPlayerPrefab, player.transform.position, Quaternion.identity);
     }
 }

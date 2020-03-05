@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33423071824211052}
   - component: {fileID: 23195110563586512}
   - component: {fileID: 65656385409730186}
-  - component: {fileID: -7275688847469083256}
   m_Layer: 0
   m_Name: Trap 01
   m_TagString: Enemy
@@ -93,15 +92,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &-7275688847469083256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779254397466754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

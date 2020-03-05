@@ -10,8 +10,9 @@ public class EnemyPlantMonster : MonoBehaviour
     public float distanceToAttack;
 
     [Header("GameObjects")]
-    public Transform target;
     public GameObject fireAttack;
+
+    private Transform target;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,9 @@ public class EnemyPlantMonster : MonoBehaviour
             if (Vector3.Distance(transform.position, target.transform.position) < distanceToAttack)
             {
                 LookRotation();
-                fireAttack.SetActive(true);
                 transform.position = this.transform.position;
                 GetComponent<Animator>().SetBool("Breath Attack", true);
+                StartCoroutine(Wait());
                 GetComponent<Animator>().SetBool("Walk", false);
 
             }
@@ -39,6 +40,7 @@ public class EnemyPlantMonster : MonoBehaviour
             {
                 LookRotation();
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+                fireAttack.SetActive(false);
                 GetComponent<Animator>().SetBool("Walk", true);
                 GetComponent<Animator>().SetBool("Breath Attack", false);
 
@@ -62,5 +64,14 @@ public class EnemyPlantMonster : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             transform.rotation = rotation;
         }
+    }
+
+    //due to the animation delay
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+
+        fireAttack.SetActive(true);
+
     }
 }

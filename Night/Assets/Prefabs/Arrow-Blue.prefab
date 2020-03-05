@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3374656}
   - component: {fileID: 2376040}
   - component: {fileID: -3533007474154786804}
-  - component: {fileID: -6896256300805605315}
   - component: {fileID: 6631085184564535595}
   - component: {fileID: 3112113466497776709}
   m_Layer: 0
@@ -99,18 +98,6 @@ MonoBehaviour:
   speed: 10
   particleEffectArrow: {fileID: 8772061447303181079, guid: ac2babb787ed5124ba42efa974e9165d,
     type: 3}
---- !u!114 &-6896256300805605315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &6631085184564535595
 CapsuleCollider:
   m_ObjectHideFlags: 0
