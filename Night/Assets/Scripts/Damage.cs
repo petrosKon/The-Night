@@ -6,7 +6,7 @@ public class Damage : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Trap") || other.CompareTag("Projectile"))
         {
             FindObjectOfType<GameManager>().DamagePlayer();
         }

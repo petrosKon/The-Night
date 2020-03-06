@@ -26,12 +26,16 @@ public class GameManager : MonoBehaviour
     public static float minPlayerSpeed = 6f;
     public static float maxPlayerSpeed = 15f;
 
+    [Header("Health")]
+    public int health;
+    public int maxHealth = 2;
+
     public static float destroyParticleEffectTime = 0.2f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -47,7 +51,10 @@ public class GameManager : MonoBehaviour
                 Destroy(player);
             }
         }
-      
+
+        IFrames();
+
+        /*
         //This block of code makes the player capable of destroying emenies
         if (IsPlayerMaxSize())
         {
@@ -73,27 +80,33 @@ public class GameManager : MonoBehaviour
         //This block of code flickers the player when he takes damage
         else
         {
-            invincibilityLength -= Time.deltaTime;
+         IFrames();
 
-            if (playerRenderer != null)
+        }*/
+    }
+
+    //Invicibility frames
+    private void IFrames()
+    {
+        invincibilityLength -= Time.deltaTime;
+        if (playerRenderer != null)
+        {
+
+            flashCounter -= Time.deltaTime;
+            if (flashCounter <= 0)
             {
+                playerRenderer.enabled = !playerRenderer.enabled;
+                flashCounter = flashLength;
+            }
 
-                flashCounter -= Time.deltaTime;
-                if (flashCounter <= 0)
-                {
-                    playerRenderer.enabled = !playerRenderer.enabled;
-                    flashCounter = flashLength;
-                }
-
-                if (invincibilityLength <= 0)
-                {
-                    playerRenderer.enabled = true;
-                }
+            if (invincibilityLength <= 0)
+            {
+                playerRenderer.enabled = true;
             }
         }
     }
 
-    //checks ig the player is max size!!
+    //checks if the player is max size!!
     private bool IsPlayerMaxSize()
     {
         if(player != null)
@@ -177,6 +190,15 @@ public class GameManager : MonoBehaviour
         {
             invincibilityLength = 3f;
 
+            health--;
+
+            if(health <= 0)
+            {
+                KillPlayer();
+            }
+
+            //uncomment to use size changer
+            /*
             if (player.transform.localScale == minPlayerScale)
             {
                 Instantiate(particleDeathEffectPlayerPrefab, player.transform.position, Quaternion.identity);
@@ -196,7 +218,7 @@ public class GameManager : MonoBehaviour
 
                 flashCounter = flashLength;
 
-            }
+            }*/
         }        
     }
 

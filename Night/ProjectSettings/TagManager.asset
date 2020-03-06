@@ -21,6 +21,7 @@ TagManager:
   - Pivot
   - ExplosionParticles
   - PlantFlamethrower
+  - Projectile
   layers:
   - Default
   - TransparentFX

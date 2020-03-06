@@ -15,7 +15,7 @@ public class PowerUpPickUp : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("PlayerMax"))
         {
-            FindObjectOfType<GameManager>().ScaleLerper(sizeIncreaseMultiplier, moveDecreaseMultiplier);
+           // FindObjectOfType<GameManager>().ScaleLerper(sizeIncreaseMultiplier, moveDecreaseMultiplier);
 
             FindObjectOfType<GameManager>().AddPoints(value);
 
