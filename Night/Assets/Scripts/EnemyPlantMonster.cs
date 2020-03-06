@@ -25,29 +25,32 @@ public class EnemyPlantMonster : MonoBehaviour
     {
         if(target != null)
         {
-            //if the player is within plant attack distance then attack
-            if (Vector3.Distance(transform.position, target.transform.position) < distanceToAttack)
+            //if the player is not within our reach then move to the target position
+            if (Vector3.Distance(transform.position, target.transform.position) < distanceToMove && target.position.y <= 2f )
             {
-                LookRotation();
-                transform.position = this.transform.position;
-                GetComponent<Animator>().SetBool("Breath Attack", true);
-                StartCoroutine(Wait());
-                GetComponent<Animator>().SetBool("Walk", false);
+                //if the player is within plant attack distance then attack
+                if (Vector3.Distance(transform.position, target.transform.position) < distanceToAttack)
+                {
+                    LookRotation();
+                    //lock the plant position
+                    transform.position = this.transform.position;
+                    StartCoroutine(Flamethrower());
 
-            }
-            //follow the player if he is within your reach and not on top of stairs
-            else if (Vector3.Distance(transform.position, target.transform.position) < distanceToMove && target.position.y <= 2f)
-            {
-                LookRotation();
-                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-                fireAttack.SetActive(false);
-                GetComponent<Animator>().SetBool("Walk", true);
-                GetComponent<Animator>().SetBool("Breath Attack", false);
+                }
+                //move towards the player
+                else
+                {
+                    LookRotation();
+                    transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+                    fireAttack.SetActive(false);
+                    GetComponent<Animator>().SetBool("Walk", true);
+                    GetComponent<Animator>().SetBool("Breath Attack", false);
 
+                }
 
             }
             //stand if player is out of reach
-            else
+            else if((Vector3.Distance(transform.position, target.transform.position) > distanceToMove))
             {
                 GetComponent<Animator>().SetBool("Walk", false);
                 GetComponent<Animator>().SetBool("Breath Attack", false);
@@ -67,8 +70,12 @@ public class EnemyPlantMonster : MonoBehaviour
     }
 
     //due to the animation delay
-    IEnumerator Wait()
+    IEnumerator Flamethrower()
     {
+        GetComponent<Animator>().SetBool("Walk", false);
+
+        GetComponent<Animator>().SetBool("Breath Attack", true);
+
         yield return new WaitForSeconds(1);
 
         fireAttack.SetActive(true);

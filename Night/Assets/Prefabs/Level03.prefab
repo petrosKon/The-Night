@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4761125366205140392}
   - component: {fileID: 4761125366205140393}
   - component: {fileID: 4761125366205140390}
-  - component: {fileID: 500014474180647048}
   m_Layer: 0
   m_Name: Trap 01 (8)
   m_TagString: Enemy
@@ -93,18 +92,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &500014474180647048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125366205140391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125366212216390
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +104,6 @@ GameObject:
   - component: {fileID: 4761125366212216395}
   - component: {fileID: 4761125366212216392}
   - component: {fileID: 4761125366212216393}
-  - component: {fileID: 1720109751321034708}
   m_Layer: 0
   m_Name: Trap 01 (7)
   m_TagString: Enemy
@@ -198,18 +184,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &1720109751321034708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125366212216390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125366255325528
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +352,6 @@ GameObject:
   - component: {fileID: 4761125366407415808}
   - component: {fileID: 4761125366407415809}
   - component: {fileID: 4761125366407415870}
-  - component: {fileID: 3807056477284777406}
   m_Layer: 0
   m_Name: Trap 01
   m_TagString: Enemy
@@ -459,18 +432,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &3807056477284777406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125366407415871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125366842341034
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +511,7 @@ MonoBehaviour:
   - {fileID: 4343128856011709247, guid: b518038b35552da4483d6b95e7e67fc6, type: 3}
   - {fileID: 3720520814284228087, guid: 511cf01157385f2498dd24ba47e9d337, type: 3}
   - {fileID: 3526965345455338401, guid: 25c07be42cbdb4740901d2806fd8815a, type: 3}
+  - {fileID: 3892118225917393835, guid: cbfaeb0e2d32cf142b21bd5d4c359c56, type: 3}
   pointCrystal: {fileID: 7174635306536957879, guid: ec2e195fa36ddfa48953b78b3a6595a8,
     type: 3}
   powerUpStar: {fileID: 6205130790239714356, guid: dd2acdf4ab3d1904891270f4b388f26d,
@@ -571,7 +533,6 @@ GameObject:
   - component: {fileID: 4761125366947871769}
   - component: {fileID: 4761125366947871766}
   - component: {fileID: 4761125366947871767}
-  - component: {fileID: 2188086149470390530}
   m_Layer: 0
   m_Name: Trap 01 (5)
   m_TagString: Enemy
@@ -652,18 +613,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &2188086149470390530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125366947871764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125366985034292
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +625,6 @@ GameObject:
   - component: {fileID: 4761125366985034297}
   - component: {fileID: 4761125366985034294}
   - component: {fileID: 4761125366985034295}
-  - component: {fileID: 8104646620414853349}
   m_Layer: 0
   m_Name: Trap 01 (1)
   m_TagString: Enemy
@@ -757,18 +705,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &8104646620414853349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125366985034292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125367123504168
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +717,6 @@ GameObject:
   - component: {fileID: 4761125367123504173}
   - component: {fileID: 4761125367123504170}
   - component: {fileID: 4761125367123504171}
-  - component: {fileID: 6791862597910694601}
   m_Layer: 0
   m_Name: Trap 01 (3)
   m_TagString: Enemy
@@ -862,18 +797,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &6791862597910694601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125367123504168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125367141522498
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +901,6 @@ GameObject:
   - component: {fileID: 4761125367259565634}
   - component: {fileID: 4761125367259565635}
   - component: {fileID: 4761125367259565632}
-  - component: {fileID: 2892137082261217965}
   m_Layer: 0
   m_Name: Trap 01 (2)
   m_TagString: Enemy
@@ -1059,18 +981,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &2892137082261217965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125367259565633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125367302054284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +993,6 @@ GameObject:
   - component: {fileID: 4761125367302054289}
   - component: {fileID: 4761125367302054286}
   - component: {fileID: 4761125367302054287}
-  - component: {fileID: 8709369434685726631}
   m_Layer: 0
   m_Name: Trap 01 (4)
   m_TagString: Enemy
@@ -1164,18 +1073,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &8709369434685726631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125367302054284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125367872542875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,7 +1394,6 @@ GameObject:
   - component: {fileID: 4761125367997130088}
   - component: {fileID: 4761125367997130089}
   - component: {fileID: 4761125367997130086}
-  - component: {fileID: 1892165781867191624}
   m_Layer: 0
   m_Name: Trap 01 (6)
   m_TagString: Enemy
@@ -1578,18 +1474,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.89801717, y: 0.24602173, z: 0.8957621}
   m_Center: {x: 0.002165094, y: 0.11085803, z: -0.0027316958}
---- !u!114 &1892165781867191624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761125367997130087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b05d3804c16b140a8dd00371f8dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4761125368073969853
 GameObject:
   m_ObjectHideFlags: 0

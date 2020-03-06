@@ -11,6 +11,7 @@ public class EnemyDeath : MonoBehaviour
     {
         if(other.CompareTag("Bullet") || other.CompareTag("PlayerMax"))
         {
+            
             Destroy(gameObject);
             GameObject clone = Instantiate(particleDeathEffectEnemyPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(clone, 0.2f);

@@ -57,8 +57,19 @@ public class GenerateObjects : MonoBehaviour
     {      
         while (enemyCount < 5)
         {
-           preventSpawnOverlap(enemies[Random.Range(0,enemies.Length)], enemyYSpawnPosition);
-           enemyCount++;
+            if (Random.Range(0, 10).Equals(9))
+            {
+                //the final enemy is the Fire Plant
+                int enemyFirePlant = enemies.Length;
+                preventSpawnOverlap(enemies[Random.Range(0, enemyFirePlant)], enemyYSpawnPosition);
+
+            }
+            else
+            {
+                preventSpawnOverlap(enemies[Random.Range(0, enemies.Length - 1)], enemyYSpawnPosition);
+
+            }
+            enemyCount++;
            
         }
 
