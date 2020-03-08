@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpPickUp : MonoBehaviour
+public class PickUpPower : MonoBehaviour
 {
     public float sizeIncreaseMultiplier;
     public float moveDecreaseMultiplier;

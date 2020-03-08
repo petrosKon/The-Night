@@ -15,10 +15,6 @@ public class PlayerAttack : MonoBehaviour
     public float flamethrowerCooldown = 0f;       //num of explosions that the player has triggered
     public float maxCooldownSeconds = 5f;
 
-    [Header("Boximon")]
-    [SerializeField]
-    private GameObject boximonGameObject;
-
 
     // Update is called once per frame
     void Update()
@@ -55,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
             // animator.SetTrigger("Attack 02");
             if (explosionCount < maxNumberOfExplosions)
             {
-                GameObject clone = Instantiate(explosionRedPrefab, boximonGameObject.transform.position, Quaternion.identity);
+                GameObject clone = Instantiate(explosionRedPrefab, transform.position, Quaternion.identity);
                 Destroy(clone, 0.3f);
                 explosionCount++;
             }

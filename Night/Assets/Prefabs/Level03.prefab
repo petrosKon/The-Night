@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4761125366205140390}
   m_Layer: 0
   m_Name: Trap 01 (8)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4761125366212216393}
   m_Layer: 0
   m_Name: Trap 01 (7)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 4761125366407415870}
   m_Layer: 0
   m_Name: Trap 01
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -521,6 +521,8 @@ MonoBehaviour:
   TopPoint: {fileID: 1050332953895033708}
   BottomPoint: {fileID: 8142638716503453470}
   colliders: []
+  yPositionSafety: 0.5
+  obstacleCheckRadius: 1
 --- !u!1 &4761125366947871764
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +537,7 @@ GameObject:
   - component: {fileID: 4761125366947871767}
   m_Layer: 0
   m_Name: Trap 01 (5)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -627,7 +629,7 @@ GameObject:
   - component: {fileID: 4761125366985034295}
   m_Layer: 0
   m_Name: Trap 01 (1)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -719,7 +721,7 @@ GameObject:
   - component: {fileID: 4761125367123504171}
   m_Layer: 0
   m_Name: Trap 01 (3)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -903,7 +905,7 @@ GameObject:
   - component: {fileID: 4761125367259565632}
   m_Layer: 0
   m_Name: Trap 01 (2)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -995,7 +997,7 @@ GameObject:
   - component: {fileID: 4761125367302054287}
   m_Layer: 0
   m_Name: Trap 01 (4)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1396,7 +1398,7 @@ GameObject:
   - component: {fileID: 4761125367997130086}
   m_Layer: 0
   m_Name: Trap 01 (6)
-  m_TagString: Enemy
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

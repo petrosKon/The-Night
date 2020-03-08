@@ -70,7 +70,7 @@ public class EnemyFirePlant : MonoBehaviour
     }
 
     //due to the animation delay
-    IEnumerator Flamethrower()
+    public IEnumerator Flamethrower()
     {
         GetComponent<Animator>().SetBool("Walk", false);
 

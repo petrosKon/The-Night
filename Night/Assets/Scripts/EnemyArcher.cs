@@ -18,6 +18,8 @@ public class EnemyArcher : MonoBehaviour
 
     [Header("Objects")]
     public GameObject projectile;                   //Arrow projectile
+    public GameObject powerUpIndicator;               //Shows that the enemy changes during the night
+
     private Transform player;                       //Our Player
     private LightingManager lightingManager;        //In order to access the time of day
 
@@ -49,6 +51,7 @@ public class EnemyArcher : MonoBehaviour
             {
                 nightPowerUp = true;
                 timeBtwShots = timeBtwShots / 2f;
+                powerUpIndicator.SetActive(true);
                 Debug.Log(timeBtwShots);
             }
         }
@@ -58,6 +61,7 @@ public class EnemyArcher : MonoBehaviour
             {
                 nightPowerUp = false;
                 timeBtwShots *= 2f;
+                powerUpIndicator.SetActive(false);
                 Debug.Log(timeBtwShots);
 
             }

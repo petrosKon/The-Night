@@ -24,6 +24,7 @@ public class EnemySpider : MonoBehaviour
 
     [Header("Particle Effect")]
     public GameObject pickUpEffect; //pick up effect case an enemy touches each other
+    public GameObject powerUpIndicator;
 
     //Static variables that we need in our code for the enemies!!!
     public static Vector3 finalEnemyScale = new Vector3(2f, 2f, 2f);
@@ -89,7 +90,9 @@ public class EnemySpider : MonoBehaviour
             if (!enemyPowerUp)
             {
                 enemyPowerUp = true;
-                EnemyEasyMaxScale(nightPowerUpMultiplier);
+                SpiderPowerUp(nightPowerUpMultiplier);
+                powerUpIndicator.SetActive(true);
+
             }
         }
         else
@@ -99,6 +102,8 @@ public class EnemySpider : MonoBehaviour
                 enemyPowerUp = false;
                 transform.localScale *= 0.8f;
                 agent.speed *= 0.8f;
+                powerUpIndicator.SetActive(false);
+
             }
         }
     }
@@ -131,7 +136,7 @@ public class EnemySpider : MonoBehaviour
                     if (!other.gameObject.GetComponent<EnemySpider>().isDestroyed)
                     {
                         isDestroyed = true;
-                        EnemyEasyMaxScale(combinePowerUpMultiplier);
+                        SpiderPowerUp(combinePowerUpMultiplier);
                         GameObject clone = Instantiate(pickUpEffect, transform.position, transform.rotation);
                         Destroy(other.gameObject);
                         Destroy(clone, 0.2f);
@@ -149,7 +154,7 @@ public class EnemySpider : MonoBehaviour
     }
 
     //Increases the enemy size
-    public void EnemyEasyMaxScale(float increaseMultiplier)
+    public void SpiderPowerUp(float increaseMultiplier)
     {
         //prevent the enemy from getting really big!!!
         if (transform.localScale.magnitude * increaseMultiplier < finalEnemyScale.magnitude)

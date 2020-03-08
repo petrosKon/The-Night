@@ -21,22 +21,19 @@ public class GenerateObjects : MonoBehaviour
     [Header("Limits")]
     public Transform TopPoint, BottomPoint;
 
+    [Header("Obstacles")]
+    public Collider[] colliders;
+
     [Header("Variables")]
+    public float yPositionSafety = 0.5f;
+    public float obstacleCheckRadius = 1f;
+
     private int xPosTop,zPosTop;
     private int xPosBottom,zPosBottom;
     private int xPos, zPos;
     private int enemyCount,pointCrystalCount,powerUpStarCount,teleporterCount;
     private int randomNumberTeleporters;
 
-    //we determine where the power ups are going to spawn!!
-    private readonly float pointCrystalYSpawnPosition = 0.3f;
-    private readonly float enemyYSpawnPosition = 0f;
-    private readonly float teleporterYSpawnPosition = 0f;
-    private readonly float powerUpStarYSpawnPosition = 0.4f;
-
-    private float obstacleCheckRadius = 1f;
-
-    public Collider[] colliders;
 
     // Start is called before the first frame update
     void Start()
@@ -54,19 +51,20 @@ public class GenerateObjects : MonoBehaviour
     }
 
     IEnumerator SpawnLevel()
-    {      
-        while (enemyCount < 5)
+    {
+        int numOfRandomEnemies = Random.Range(0, 10);
+        while (enemyCount < numOfRandomEnemies)
         {
             if (Random.Range(0, 10).Equals(9))
             {
                 //the final enemy is the Fire Plant
                 int enemyFirePlant = enemies.Length;
-                preventSpawnOverlap(enemies[Random.Range(0, enemyFirePlant)], enemyYSpawnPosition);
+                PreventSpawnOverlap(enemies[Random.Range(0, enemyFirePlant)]);
 
             }
             else
             {
-                preventSpawnOverlap(enemies[Random.Range(0, enemies.Length - 1)], enemyYSpawnPosition);
+                PreventSpawnOverlap(enemies[Random.Range(0, enemies.Length - 1)]);
 
             }
             enemyCount++;
@@ -75,51 +73,61 @@ public class GenerateObjects : MonoBehaviour
 
         while (teleporterCount < randomNumberTeleporters)
         {
-            preventSpawnOverlap(teleporter,teleporterYSpawnPosition);
+            PreventSpawnOverlap(teleporter);
             teleporterCount++;
         }
 
-        while (pointCrystalCount < 30)
+        int numOfRandomCrystals = Random.Range(0, 50);
+        while (pointCrystalCount < numOfRandomCrystals)
         {
-            preventSpawnOverlap(pointCrystal, pointCrystalYSpawnPosition);
+            PreventSpawnOverlap(pointCrystal);
             pointCrystalCount++;           
         }
 
-        while (powerUpStarCount < 3)
+        int numOfRandomStars = Random.Range(0, 6);
+        while (powerUpStarCount < numOfRandomStars)
         {
-            preventSpawnOverlap(powerUpStar, powerUpStarYSpawnPosition);
+            PreventSpawnOverlap(powerUpStar);
             powerUpStarCount++;
         }
 
         if (Random.Range(0, 10).Equals(9))
         {
-            preventSpawnOverlap(woodenChest, powerUpStarYSpawnPosition);
+            PreventSpawnOverlap(woodenChest);
         }
         
         yield return new WaitForSeconds(0.1f);
 
     }
 
-    private void preventSpawnOverlap(GameObject instatiatedObject,float spawnYPosition)
+    private void PreventSpawnOverlap(GameObject instatiatedObject)
     {
         bool validPosition = false;
         Vector3 randomPosition = new Vector3();
+        RaycastHit hit;
 
         while (!validPosition)
         {
             validPosition = true;
 
+            //random positions
             xPos = Random.Range(xPosTop, xPosBottom);
             zPos = Random.Range(zPosBottom, zPosTop);
-            randomPosition = new Vector3(xPos, spawnYPosition, zPos);
+
+            //The Y position is calculated when a raycast hit the layer, in order to determine it!!
+            if(Physics.Raycast(new Vector3(xPos,9999f,zPos),Vector3.down, out hit, Mathf.Infinity))
+            {
+                randomPosition = new Vector3(xPos, hit.point.y + yPositionSafety, zPos);
+            }
 
             //we get the nearby colliders and if there is none around we spawn our object!!!
             colliders = Physics.OverlapSphere(randomPosition, obstacleCheckRadius);
 
+            //if our objects overlap with the colliders then reset the variable
             foreach (Collider col in colliders)
             {
 
-                if (col.tag == "Obstacle" || col.tag == "Enemy")
+                if (col.CompareTag("Obstacle") || col.CompareTag("Enemy"))
                 {
                     validPosition = false;  
                 }

@@ -11,10 +11,11 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed;
 
     [Header("Unity Setup Fields")]
-    private CharacterController characterController;
-    private float gravityScale = 1f;
     public Animator animator;
     public GameObject playerModel;
+    public float gravityScale = 1f;
+
+    private CharacterController characterController;
     private Vector3 moveDirection;
     private static readonly int MAX_JUMP = 1;       //determine the max number of jumps
     private int jumpCount = 0;                      //determine the current number of jumps

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PointsPickup : MonoBehaviour
+public class PickUpPoints : MonoBehaviour
 { 
     [Header("Points")]
     public int value;

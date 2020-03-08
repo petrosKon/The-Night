@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ChickenRun : MonoBehaviour
 {
+    [Header("Variables")]
     public float speed;
-    private float waitTime;
-    private float startWaitingTime;
-
-    private Transform moveSpot;
+    public float startWaitingTime = 2f;
     public Transform pointBottom, pointTop;
+
+    private float waitTime;
+    private Transform moveSpot;
     private float minΖ;
     private float maxΖ;
     private float minX;

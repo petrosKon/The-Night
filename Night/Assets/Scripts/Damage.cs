@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    [Header("Tags")]
+    public string enemyTag = "Enemy";
+    public string trapTag = "Trap";
+    public string projectileTag = "Projectile";
+    public string plantFlamethrowerTag = "PlantFlamethrower";
+
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("Trap") || other.CompareTag("Projectile"))
+        if (other.CompareTag(enemyTag) || other.CompareTag(trapTag) || other.CompareTag(projectileTag))
         {
             FindObjectOfType<GameManager>().DamagePlayer();
         }
     }
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("PlantFlamethrower"))
+        if (other.CompareTag(plantFlamethrowerTag))
         {
             FindObjectOfType<GameManager>().KillPlayer();
         }
