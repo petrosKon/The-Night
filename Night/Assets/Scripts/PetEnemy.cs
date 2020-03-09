@@ -7,10 +7,9 @@ public class PetEnemy : MonoBehaviour
 {
     [Header("Variables")]
     public float distanceToEnemy;   //the distance in order to follow the enemy
-    public float distanceToAttack;  //distance in order to attack the enemy
+    public float distanceFireAttack;  //distance in order to attack the enemy
     public float distanceToPlayer;  //distance to stop away from the player
     public float speed = 3f;        //flower speed
-    public Vector3 offset;      //offset in which the plant must follow
 
     [Header("GameObjects")]
     public GameObject fireAttack;
@@ -21,6 +20,8 @@ public class PetEnemy : MonoBehaviour
     public Transform[] enemiesTransform;
 
     private Transform targetToFollow;       //target to follow aka player
+    private Vector3 offset;      //offset in which the plant must follow
+    private RaycastHit hit;
 
 
     // Start is called before the first frame update
@@ -29,8 +30,6 @@ public class PetEnemy : MonoBehaviour
         targetToFollow = PlayerManager.instance.player.transform;
 
         offset = new Vector3(0f, transform.position.y, 5f);
-
-        StartCoroutine(SearchForEnemies());
 
     }
 
@@ -44,14 +43,18 @@ public class PetEnemy : MonoBehaviour
             {
                 //we find the closest enemy by calling this function
                 Transform closestEnemy = GetClosestEnemy(enemiesTransform);
+                float closestEnemyDistance = Vector3.Distance(closestEnemy.position, transform.position); //the position of the closest enemy compared to our plant
+                float playerDistance = Vector3.Distance(targetToFollow.transform.position + offset, transform.position);
+
                 //if the plants distance from the enemy is less than the distance from the player then follow and try to kill an enemy
-                if (Vector3.Distance(closestEnemy.position, transform.position) < Vector3.Distance(targetToFollow.transform.position + offset, transform.position)
-                    || Vector3.Distance(closestEnemy.position, transform.position) < distanceToEnemy)       //prevents from sticking to our player when an enemy passes by
+                if (closestEnemyDistance < playerDistance
+                    || closestEnemyDistance < distanceToEnemy)       //prevents from sticking to our player when an enemy passes by
                 {
 
                     //if the player is within plant attack distance then attack
-                    if (Vector3.Distance(transform.position,closestEnemy.position) < distanceToAttack)
+                    if (closestEnemyDistance < distanceFireAttack)
                     {
+
                         LookRotation(closestEnemy);
                         //lock the plant position
                         transform.position = this.transform.position;
@@ -69,12 +72,11 @@ public class PetEnemy : MonoBehaviour
                 else
                 {
                     //check if the plant is closer or not to the player
-                    if (Vector3.Distance(transform.position,targetToFollow.transform.position + offset) > distanceToPlayer)
+                    if (playerDistance > distanceToPlayer)
                     {
-                        StopFireAttack();
                         LookRotation(targetToFollow);
                         transform.position = Vector3.MoveTowards(transform.position, targetToFollow.transform.position + offset, speed * Time.deltaTime);
-                        GetComponent<Animator>().SetBool("Walk", true);
+                        StopFireAttack();
                     }
                     else
                     {
@@ -88,20 +90,19 @@ public class PetEnemy : MonoBehaviour
             //reset our enemies in order to find again the nearest
             catch (MissingReferenceException e)
             {
-                StartCoroutine(SearchForEnemies());
+                SearchForEnemies();
             }
+            //this is the case where our ally hasn't detected any enemies
             catch (NullReferenceException e)
             {
+                SearchForEnemies();
 
             }
-
-
         }
     }
 
-    IEnumerator SearchForEnemies()
+    void SearchForEnemies()
     {
-        yield return new WaitForSeconds(1);
 
         if (nearbyEnemies != null)
         {
@@ -162,7 +163,7 @@ public class PetEnemy : MonoBehaviour
     void StopFireAttack()
     {
         fireAttack.SetActive(false);
-        GetComponent<Animator>().SetBool("Walk", true);
         GetComponent<Animator>().SetBool("Breath Attack", false);
+        GetComponent<Animator>().SetBool("Walk", true);
     }
 }

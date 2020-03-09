@@ -22,6 +22,7 @@ TagManager:
   - ExplosionParticles
   - PlantFlamethrower
   - Projectile
+  - Chicken
   layers:
   - Default
   - TransparentFX

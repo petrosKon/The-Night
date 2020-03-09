@@ -26,7 +26,7 @@ public class EnemyFirePlant : MonoBehaviour
         if(target != null)
         {
             //if the player is not within our reach then move to the target position
-            if (Vector3.Distance(transform.position, target.transform.position) < distanceToMove && target.position.y <= 2f )
+            if (Vector3.Distance(transform.position, target.transform.position) < distanceToMove && target.position.y <= 2f)
             {
                 //if the player is within plant attack distance then attack
                 if (Vector3.Distance(transform.position, target.transform.position) < distanceToAttack)
