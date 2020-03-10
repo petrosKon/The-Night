@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  startWaitingTime: 2
   pointBottom: {fileID: 1626669832841257330}
   pointTop: {fileID: 2109695462668188476}
 --- !u!1 &3985248756815784073
@@ -97,15 +98,16 @@ MonoBehaviour:
   - {fileID: 3720520814284228087, guid: 511cf01157385f2498dd24ba47e9d337, type: 3}
   - {fileID: 3526965345455338401, guid: 25c07be42cbdb4740901d2806fd8815a, type: 3}
   - {fileID: 3892118225917393835, guid: cbfaeb0e2d32cf142b21bd5d4c359c56, type: 3}
-  pointCrystal: {fileID: 7174635306536957879, guid: ec2e195fa36ddfa48953b78b3a6595a8,
-    type: 3}
-  powerUpStar: {fileID: 6205130790239714356, guid: dd2acdf4ab3d1904891270f4b388f26d,
-    type: 3}
+  crystal: {fileID: 7174635306536957879, guid: ec2e195fa36ddfa48953b78b3a6595a8, type: 3}
+  star: {fileID: 1012990564381193066, guid: 7b1ba62cb00fa3444ad0072176365104, type: 3}
+  seed: {fileID: 6205130790239714356, guid: dd2acdf4ab3d1904891270f4b388f26d, type: 3}
   teleporter: {fileID: 1620071135427400, guid: 19c412f8f5af8fa4dbe5adbf58d317e6, type: 3}
   woodenChest: {fileID: 195420, guid: 80ead7a1a3e9abe4ea95e49b0a84bb38, type: 3}
   TopPoint: {fileID: 2109695462668188476}
   BottomPoint: {fileID: 1626669832841257330}
   colliders: []
+  yPositionSafety: 0.5
+  obstacleCheckRadius: 1
 --- !u!1 &3985248757553467705
 GameObject:
   m_ObjectHideFlags: 0

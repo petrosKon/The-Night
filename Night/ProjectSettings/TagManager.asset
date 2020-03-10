@@ -23,6 +23,7 @@ TagManager:
   - PlantFlamethrower
   - Projectile
   - Chicken
+  - Seed
   layers:
   - Default
   - TransparentFX

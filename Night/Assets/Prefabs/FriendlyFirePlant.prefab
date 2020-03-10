@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToEnemy: 15
-  distanceToAttack: 10
+  distanceFireAttack: 10
   distanceToPlayer: 10
   speed: 5
-  offset: {x: 0, y: 0, z: 0}
-  fireAttack: {fileID: 0}
+  fireAttack: {fileID: 4193753243960128711}
   nearbyEnemies: []
   enemiesTransform: []
 --- !u!1001 &2029858014959516231
@@ -128,6 +127,12 @@ PrefabInstance:
 --- !u!1 &3037702118883787244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3892118225917393835, guid: cbfaeb0e2d32cf142b21bd5d4c359c56,
+    type: 3}
+  m_PrefabInstance: {fileID: 2029858014959516231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4193753243960128711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2745143290432491136, guid: cbfaeb0e2d32cf142b21bd5d4c359c56,
     type: 3}
   m_PrefabInstance: {fileID: 2029858014959516231}
   m_PrefabAsset: {fileID: 0}

@@ -9,8 +9,9 @@ public class GenerateObjects : MonoBehaviour
     public GameObject[] enemies;
 
     [Header("PickUp Items")]
-    public GameObject pointCrystal;
-    public GameObject powerUpStar;
+    public GameObject crystal;
+    public GameObject star;
+    public GameObject seed;
 
     [Header("Teleporter")]
     public GameObject teleporter;
@@ -53,14 +54,17 @@ public class GenerateObjects : MonoBehaviour
     IEnumerator SpawnLevel()
     {
         int numOfRandomEnemies = Random.Range(0, 10);
+        bool firePlantSpawned = false;
+        //enemies
         while (enemyCount < numOfRandomEnemies)
         {
+            //fire plant spawn
             if (Random.Range(0, 10).Equals(9))
             {
                 //the final enemy is the Fire Plant
                 int enemyFirePlant = enemies.Length;
                 PreventSpawnOverlap(enemies[Random.Range(0, enemyFirePlant)]);
-
+                firePlantSpawned = true;
             }
             else
             {
@@ -71,26 +75,41 @@ public class GenerateObjects : MonoBehaviour
            
         }
 
+        //teleporters
         while (teleporterCount < randomNumberTeleporters)
         {
             PreventSpawnOverlap(teleporter);
             teleporterCount++;
         }
 
+        //point crystals : +5 points
         int numOfRandomCrystals = Random.Range(0, 50);
         while (pointCrystalCount < numOfRandomCrystals)
         {
-            PreventSpawnOverlap(pointCrystal);
+            PreventSpawnOverlap(crystal);
             pointCrystalCount++;           
         }
 
+        //point stars : +100 points
         int numOfRandomStars = Random.Range(0, 6);
         while (powerUpStarCount < numOfRandomStars)
         {
-            PreventSpawnOverlap(powerUpStar);
+            PreventSpawnOverlap(star);
             powerUpStarCount++;
         }
 
+        //if a fire plant is spawned then also spawn a seed
+        if (firePlantSpawned)
+        {
+            if (Random.Range(0, 6).Equals(4))
+            {
+                PreventSpawnOverlap(seed);
+
+            }
+
+        }
+
+        //1 in 10 chance that a wooden chest will spawn
         if (Random.Range(0, 10).Equals(9))
         {
             PreventSpawnOverlap(woodenChest);
@@ -134,7 +153,7 @@ public class GenerateObjects : MonoBehaviour
             }
         }
 
-        if(instatiatedObject == pointCrystal || instatiatedObject == powerUpStar)
+        if(instatiatedObject == crystal || instatiatedObject == star || instatiatedObject == seed)
         {
             //spawns the prefabs with a rotation especially the crystals and the stars!!
             Instantiate(instatiatedObject, randomPosition, Quaternion.Euler(270, 0, 0));

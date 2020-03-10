@@ -44,7 +44,10 @@ MonoBehaviour:
   speed: 3
   distanceToMove: 50
   distanceToAttack: 30
+  hasSeed: 0
   fireAttack: {fileID: 2745143290432491136}
+  petFirePlant: {fileID: 3037702118883787244, guid: 80d3bfd5d9cc6274fb620545057ed4a7,
+    type: 3}
 --- !u!114 &534361619195173246
 MonoBehaviour:
   m_ObjectHideFlags: 0

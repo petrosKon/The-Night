@@ -24,7 +24,6 @@ public class EnemySpider : MonoBehaviour
 
     [Header("Particle Effect")]
     public GameObject pickUpEffect; //pick up effect case an enemy touches each other
-    public GameObject powerUpIndicator;
 
     //Static variables that we need in our code for the enemies!!!
     public static Vector3 finalEnemyScale = new Vector3(2f, 2f, 2f);
@@ -91,7 +90,6 @@ public class EnemySpider : MonoBehaviour
             {
                 enemyPowerUp = true;
                 SpiderPowerUp(nightPowerUpMultiplier);
-                powerUpIndicator.SetActive(true);
 
             }
         }
@@ -102,8 +100,6 @@ public class EnemySpider : MonoBehaviour
                 enemyPowerUp = false;
                 transform.localScale *= 0.8f;
                 agent.speed *= 0.8f;
-                powerUpIndicator.SetActive(false);
-
             }
         }
     }

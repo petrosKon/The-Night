@@ -47,8 +47,8 @@ public class PetEnemy : MonoBehaviour
                 float playerDistance = Vector3.Distance(targetToFollow.transform.position + offset, transform.position);
 
                 //if the plants distance from the enemy is less than the distance from the player then follow and try to kill an enemy
-                if (closestEnemyDistance < playerDistance
-                    || closestEnemyDistance < distanceToEnemy)       //prevents from sticking to our player when an enemy passes by
+                if ((closestEnemyDistance < playerDistance
+                    || closestEnemyDistance < distanceToEnemy) && targetToFollow.position.y <= 2f)       //prevents from sticking to our player when an enemy passes by
                 {
 
                     //if the player is within plant attack distance then attack
