@@ -12,7 +12,7 @@ public class EnemyBat : MonoBehaviour
     public GameObject soundwaveParticles;
 
 
-    private float distanceToFollow = 5f;  //the player need to get really close to the bat
+    private float distanceToFollow = 10f;  //the player need to get really close to the bat
     private Transform playerTarget;
     private Vector3 offset;      //offset in which the plant must follow
 
@@ -30,19 +30,26 @@ public class EnemyBat : MonoBehaviour
     {
         if (playerTarget != null)
         {
-            if (Vector3.Distance(transform.position, playerTarget.position) <= distanceToFollow)
+            float distancePlayer = Vector3.Distance(transform.position, playerTarget.position);
+            if (distancePlayer <= distanceToFollow)
             {
+                if (distancePlayer <= distanceToAttack)
+                {
+                    //Homing attack
+                    GetComponent<Animator>().SetTrigger("Fly Forward");
+                    transform.Translate(Vector3.forward);
+                }
+                else
+                {
+                    //create a very big distance in order for the player to not be able to escape the bat
+                    distanceToFollow = 100f;
 
-                //create a very big distance in order for the player to not be able to escape the bat
-                distanceToFollow = 100f;
+                    LookRotation(playerTarget);
 
-                LookRotation(playerTarget);
-
-                transform.position = Vector3.MoveTowards(transform.position, playerTarget.position + offset, speed * Time.deltaTime);
-
+                    transform.position = Vector3.MoveTowards(transform.position, playerTarget.position + offset, speed * Time.deltaTime);
+                }
             }
         }
-
     }
 
     void LookRotation(Transform target)

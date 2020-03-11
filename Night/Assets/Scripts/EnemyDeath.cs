@@ -9,7 +9,7 @@ public class EnemyDeath : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Bullet") || other.CompareTag("PlayerMax"))
+        if(other.CompareTag("Bullet"))
         {
             
             Destroy(gameObject);

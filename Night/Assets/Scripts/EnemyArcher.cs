@@ -19,13 +19,13 @@ public class EnemyArcher : MonoBehaviour
     [Header("Objects")]
     public GameObject projectile;                   //Arrow projectile
 
-    private Transform player;                       //Our Player
+    private Transform playerTarget;                       //Our Player
     private LightingManager lightingManager;        //In order to access the time of day
 
     // Start is called before the first frame update
     void Start()
     {
-        player = PlayerManager.instance.player.transform;
+        playerTarget = PlayerManager.instance.player.transform;
         timeBtwShots = startTimeBtwShots;
         lightingManager = FindObjectOfType<LightingManager>();
     }
@@ -67,20 +67,22 @@ public class EnemyArcher : MonoBehaviour
 
     private void ArcherMovement()
     {
-        if (player != null)
+        if (playerTarget != null)
         {
+            float distancePlayer = Vector3.Distance(transform.position, playerTarget.position);
+
             //if player goes within radius then shoot the player
-            if (Vector3.Distance(transform.position, player.position) < distanceToShoot)
+            if (distancePlayer < distanceToShoot)
             {
-                if (Vector3.Distance(transform.position, player.position) > stoppingDistance)
+                if (distancePlayer > stoppingDistance)
                 {
 
-                    transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, speed * Time.deltaTime);
                     LookRotation();
                     this.GetComponent<Animator>().SetBool("Run", true);
 
                 }
-                else if (Vector3.Distance(transform.position, player.position) < stoppingDistance && Vector3.Distance(transform.position, player.position) > retreatDistance)
+                else if (distancePlayer < stoppingDistance && distancePlayer > retreatDistance)
                 {
 
                     transform.position = this.transform.position;
@@ -88,9 +90,9 @@ public class EnemyArcher : MonoBehaviour
 
 
                 }
-                else if (Vector3.Distance(transform.position, player.position) < retreatDistance)
+                else if (distancePlayer < retreatDistance)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, -speed * Time.deltaTime);
                     LookRotation();
                     GetComponent<Animator>().SetBool("Run", true);
 
@@ -122,7 +124,7 @@ public class EnemyArcher : MonoBehaviour
 
     void LookRotation()
     {
-        Vector3 relativePos = player.position - transform.position;
+        Vector3 relativePos = playerTarget.position - transform.position;
         if (relativePos != Vector3.zero)
         {
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
