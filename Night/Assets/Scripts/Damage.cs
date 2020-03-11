@@ -10,12 +10,17 @@ public class Damage : MonoBehaviour
     public string projectileTag = "Projectile";
     public string plantFlamethrowerTag = "PlantFlamethrower";
     public string chicken = "Chicken";
+    public string seed = "Seed";
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(enemyTag) || other.CompareTag(trapTag) || other.CompareTag(projectileTag) || other.CompareTag(chicken))
+        if (other.CompareTag(enemyTag)
+            || other.CompareTag(trapTag)
+            || other.CompareTag(projectileTag)
+            || other.CompareTag(chicken) 
+            || other.CompareTag(seed))
         {
             FindObjectOfType<GameManager>().DamagePlayer();
         }

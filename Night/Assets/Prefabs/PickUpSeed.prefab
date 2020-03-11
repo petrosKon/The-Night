@@ -28,6 +28,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seedItemThumbnail: {fileID: 43322471028521290, guid: cc27f55fd97457f46990c9ddb062518b,
     type: 3}
+  pickupEffect: {fileID: 3875911209914246839, guid: 4775fe22f61c64049a7329a7de318d83,
+    type: 3}
 --- !u!1001 &1012553506763788640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,6 +40,10 @@ PrefabInstance:
     - target: {fileID: 1000012946874890, guid: 586acbe765df7c34385298970076297e, type: 3}
       propertyPath: m_Name
       value: PickUpSeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012946874890, guid: 586acbe765df7c34385298970076297e, type: 3}
+      propertyPath: m_TagString
+      value: Seed
       objectReference: {fileID: 0}
     - target: {fileID: 4000013718473930, guid: 586acbe765df7c34385298970076297e, type: 3}
       propertyPath: m_LocalPosition.x

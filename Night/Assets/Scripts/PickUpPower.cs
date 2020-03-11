@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PickUpPower : MonoBehaviour
 {
+    [Header("Variable")]
     public float sizeIncreaseMultiplier;
     public float moveDecreaseMultiplier;
     private int value = 100;
     //public int healAmount; 
 
+    [Header("Particle Effect")]
     public GameObject pickupEffect;
 
     private void OnTriggerEnter(Collider other)

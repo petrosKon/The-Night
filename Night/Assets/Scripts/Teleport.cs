@@ -6,7 +6,8 @@ public class Teleport : MonoBehaviour
 {
     [Header("GameObjects")]
     private GameObject[] teleportortationDevices;
-    public GameObject player;
+
+    private GameObject player;
     GameObject randomTeleporter;
 
     public static float teleportationTime = 5f;    //prevents from teleporting within 5 seconds
@@ -15,7 +16,7 @@ public class Teleport : MonoBehaviour
     void Start()
     {
         teleportortationDevices = GameObject.FindGameObjectsWithTag("Teleport");
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = PlayerManager.instance.player;
 
         int random = Random.Range(0, teleportortationDevices.Length);
         Debug.Log(random);

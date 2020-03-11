@@ -81,10 +81,10 @@ public class PetEnemy : MonoBehaviour
                     else
                     {
                         GetComponent<Animator>().SetBool("Walk", false);
+                        GetComponent<Animator>().SetBool("Breath Attack", false);
 
                     }
                 }
-
             }
             //This means that our target has died
             //reset our enemies in order to find again the nearest

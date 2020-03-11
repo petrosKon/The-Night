@@ -8,6 +8,9 @@ public class PickUpSeed : MonoBehaviour
     public GameObject seedItemThumbnail;
     private Inventory inventory;
 
+    [Header("Particle Effect")]
+    public GameObject pickupEffect;
+
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -24,6 +27,8 @@ public class PickUpSeed : MonoBehaviour
                     inventory.isFull[i] = true;
                     Instantiate(seedItemThumbnail, inventory.slots[i].transform, false);
                     Destroy(gameObject);
+                    GameObject clone = Instantiate(pickupEffect, transform.position, transform.rotation);
+                    Destroy(clone,0.2f);
                     break;
 
                 }
