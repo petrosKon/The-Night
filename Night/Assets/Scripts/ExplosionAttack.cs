@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExplosionAttack : MonoBehaviour
 {
     [Header("Explosion Variables")]
-    public GameObject explosionRedPrefab;           //the explosion that is triggered
+    public GameObject explosionAttack;           //the explosion that is triggered
     public int maxNumberOfExplosions = 2;           //num of explosions that the player is able to trigger
     public int explosionCount = 0;                  //num of explosions that the player has triggered
 
@@ -34,7 +34,8 @@ public class ExplosionAttack : MonoBehaviour
 
     void Spawn()
     {
-        GameObject clone = Instantiate(explosionRedPrefab, transform.position, Quaternion.identity);
+        GameObject clone = Instantiate(explosionAttack, transform.position, Quaternion.identity);
+        clone.transform.Rotate(-90f, 0f, 0f);
         Destroy(clone, 0.3f);
     }
 }
