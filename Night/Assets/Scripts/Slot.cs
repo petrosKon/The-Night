@@ -17,9 +17,12 @@ public class Slot : MonoBehaviour
     {
         DropItem();
 
-        if(transform.childCount <= 0)
+        if (inventory != null)
         {
-            inventory.isFull[i] = false;
+            if (transform.childCount <= 0)
+            {
+                inventory.isFull[i] = false;
+            }
         }
     }
 

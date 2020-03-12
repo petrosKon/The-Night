@@ -11,6 +11,7 @@ public class PickUpPoints : MonoBehaviour
 
     [Header("Particle Effect")]
     public GameObject pickupEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class PickUpPoints : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") || other.CompareTag("PlayerMax"))
+        if(other.CompareTag("Player"))
         {
             FindObjectOfType<GameManager>().AddPoints(value);
 

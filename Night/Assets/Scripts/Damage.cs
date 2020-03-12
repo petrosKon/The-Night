@@ -22,14 +22,14 @@ public class Damage : MonoBehaviour
             || other.CompareTag(chicken) 
             || other.CompareTag(seed))
         {
-            FindObjectOfType<GameManager>().DamagePlayer();
+            FindObjectOfType<HealthManager>().DamagePlayer();
         }
     }
     private void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag(plantFlamethrowerTag))
         {
-            FindObjectOfType<GameManager>().KillPlayer();
+            FindObjectOfType<HealthManager>().KillPlayer();
         }
     }
 }

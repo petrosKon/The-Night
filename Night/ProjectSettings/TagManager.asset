@@ -4,9 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - EnemyEasy
-  - EnemyMedium
-  - EnemyHard
   - Flower
   - TopPoint
   - BottomPoint
@@ -14,7 +11,6 @@ TagManager:
   - Trap
   - Bullet
   - Enemy
-  - PlayerMax
   - Wooden Chest
   - Teleport
   - Level
@@ -24,6 +20,7 @@ TagManager:
   - Projectile
   - Chicken
   - Seed
+  - Bat
   layers:
   - Default
   - TransparentFX

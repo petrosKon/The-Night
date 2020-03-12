@@ -15,16 +15,11 @@ public class PickUpPower : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("PlayerMax"))
+        if (other.CompareTag("Player"))
         {
-           // FindObjectOfType<GameManager>().ScaleLerper(sizeIncreaseMultiplier, moveDecreaseMultiplier);
-
             FindObjectOfType<GameManager>().AddPoints(value);
 
-            //uncomment if you want to add life to the player
-            //FindObjectOfType<HealthManager>().HealPlayer(healAmount);
-
-           GameObject clone = Instantiate(pickupEffect, transform.position, transform.rotation);
+            GameObject clone = Instantiate(pickupEffect, transform.position, transform.rotation);
 
             Destroy(gameObject);
 

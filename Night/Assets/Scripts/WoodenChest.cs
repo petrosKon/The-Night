@@ -8,18 +8,18 @@ public class WoodenChest : MonoBehaviour
     public GameObject pickupEffect;
 
     public float flamethrowerUpgradeMultiplier = 1.2f;
+    public int healAmount = 1;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             //give player another explosion
-            FindObjectOfType<PlayerAttack>().maxNumberOfExplosions++;
+            FindObjectOfType<ExplosionAttack>().maxNumberOfExplosions++;
             //reset the explosions
-            FindObjectOfType<PlayerAttack>().explosionCount = 0;
-            //upgrade the time of fire breath
-            FindObjectOfType<PlayerAttack>().flamethrowerActiveTime *= flamethrowerUpgradeMultiplier;
-            //Heal the player
-            FindObjectOfType<GameManager>().health = FindObjectOfType<GameManager>().maxHealth;
+            FindObjectOfType<ExplosionAttack>().explosionCount = 0;
+            //Heal the player by 1 point
+            FindObjectOfType<HealthManager>().HealPlayer(healAmount);
 
             GameObject clone = Instantiate(pickupEffect, transform.position, transform.rotation);
             Destroy(gameObject);

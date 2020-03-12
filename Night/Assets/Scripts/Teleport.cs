@@ -48,7 +48,7 @@ public class Teleport : MonoBehaviour
         //creates serial teleportation devices
         if (other.CompareTag("Player"))
         {
-            if (player != null)
+            if (player.transform != null)
             {
                 if (teleportationTime <= 0f)
                 {

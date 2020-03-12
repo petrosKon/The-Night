@@ -103,7 +103,6 @@ public class PetEnemy : MonoBehaviour
 
     void SearchForEnemies()
     {
-
         if (nearbyEnemies != null)
         {
             nearbyEnemies = GameObject.FindGameObjectsWithTag("Enemy");

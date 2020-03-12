@@ -13,8 +13,6 @@ public class EnemyArcher : MonoBehaviour
     public float startTimeBtwShots;     //time between shots
 
     private float timeBtwShots;
-    private float timeOfDay;             //Time of day accessed on lighting manager
-    private bool nightPowerUp = false;           //Determine if the archer has powered up
 
     [Header("Objects")]
     public GameObject projectile;                   //Arrow projectile
@@ -34,35 +32,6 @@ public class EnemyArcher : MonoBehaviour
     void Update()
     {
         ArcherMovement();
-
-        NightPowerUp();
-       
-    }
-
-    private void NightPowerUp()
-    {
-
-        float currentTime = lightingManager.timeOfDay;
-        //Night Enters
-        if (currentTime <= 6 || currentTime >= 19)
-        {
-            if (!nightPowerUp)
-            {
-                nightPowerUp = true;
-                timeBtwShots = timeBtwShots / 2f;
-                Debug.Log(timeBtwShots);
-            }
-        }
-        else
-        {
-            if (nightPowerUp)
-            {
-                nightPowerUp = false;
-                timeBtwShots *= 2f;
-                Debug.Log(timeBtwShots);
-
-            }
-        }
     }
 
     private void ArcherMovement()
@@ -76,24 +45,23 @@ public class EnemyArcher : MonoBehaviour
             {
                 if (distancePlayer > stoppingDistance)
                 {
-
-                    transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, speed * Time.deltaTime);
                     LookRotation();
-                    this.GetComponent<Animator>().SetBool("Run", true);
+                    transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, speed * Time.deltaTime);
+                    GetComponent<Animator>().SetBool("Run", true);
 
                 }
                 else if (distancePlayer < stoppingDistance && distancePlayer > retreatDistance)
                 {
 
                     transform.position = this.transform.position;
-                    this.GetComponent<Animator>().SetBool("Run", false);
+                    GetComponent<Animator>().SetBool("Run", false);
 
 
                 }
                 else if (distancePlayer < retreatDistance)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, -speed * Time.deltaTime);
                     LookRotation();
+                    transform.position = Vector3.MoveTowards(transform.position, playerTarget.position, -speed * Time.deltaTime);
                     GetComponent<Animator>().SetBool("Run", true);
 
                 }
