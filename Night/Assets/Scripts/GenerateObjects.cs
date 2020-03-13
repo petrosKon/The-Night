@@ -53,7 +53,7 @@ public class GenerateObjects : MonoBehaviour
 
     IEnumerator SpawnLevel()
     {
-        int numOfRandomEnemies = Random.Range(0, 10);
+        int numOfRandomEnemies = Random.Range(6, 10);
         bool firePlantSpawned = false;
         //enemies
         while (enemyCount < numOfRandomEnemies)

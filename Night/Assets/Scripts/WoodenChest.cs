@@ -15,9 +15,9 @@ public class WoodenChest : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //give player another explosion
-            FindObjectOfType<ExplosionAttack>().maxNumberOfExplosions++;
+            FindObjectOfType<BarbarianCombat>().maxNumberOfExplosions++;
             //reset the explosions
-            FindObjectOfType<ExplosionAttack>().explosionCount = 0;
+            FindObjectOfType<BarbarianCombat>().explosionCount = 0;
             //Heal the player by 1 point
             FindObjectOfType<HealthManager>().HealPlayer(healAmount);
 

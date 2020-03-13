@@ -101,7 +101,6 @@ public class EnemyFirePlant : MonoBehaviour
             return false;
 
         }
-        return false;
     }
 
     void LookRotation()
