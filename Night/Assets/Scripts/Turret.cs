@@ -10,6 +10,8 @@ public class Turret : MonoBehaviour
     public float range = 15f;
     public float fireRate = 1f;
     public int numberOfShots = 0;
+    public int maxNumberOfShots = 5;
+
     private float fireCountdown = 0f;
 
     [Header("Unity Setup Fields")]
@@ -33,17 +35,17 @@ public class Turret : MonoBehaviour
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
-        foreach(GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if(distanceToEnemy < shortestDistance)
+            if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
 
-        if(nearestEnemy != null && shortestDistance <= range)
+        if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
         }
@@ -62,18 +64,18 @@ public class Turret : MonoBehaviour
         //target lock on!!
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation,lookRotation,Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f,rotation.y,0f);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if(fireCountdown <= 0f)
-        {          
+        if (fireCountdown <= 0f)
+        {
             //fire and kill max 3 enemies
-           if(numberOfShots < 3)
+            if (numberOfShots < maxNumberOfShots)
             {
                 Shoot();
                 fireCountdown = 1f / fireRate;
             }
-                               
+
         }
 
         fireCountdown -= Time.deltaTime;
@@ -86,7 +88,7 @@ public class Turret : MonoBehaviour
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         Debug.Log(numberOfShots);
 
-        if(bullet != null)
+        if (bullet != null)
         {
             bullet.Seek(target);
         }
@@ -95,7 +97,7 @@ public class Turret : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position,range);
-        
+        Gizmos.DrawWireSphere(transform.position, range);
+
     }
 }

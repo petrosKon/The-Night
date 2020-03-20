@@ -21,6 +21,7 @@ TagManager:
   - Chicken
   - Seed
   - Bat
+  - Water
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5757851208864290914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000031789153, y: 4.966667, z: 2.4333334}
+  m_LocalPosition: {x: 0.00000023841855, y: 4.966667, z: 3.0000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7454870107710381747}
@@ -58,6 +58,7 @@ MonoBehaviour:
   range: 25
   fireRate: 2
   numberOfShots: 0
+  maxNumberOfShots: 5
   enemyTag: Enemy
   partToRotate: {fileID: 7454621400452818323}
   turnSpeed: 10
@@ -93,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_LocalPosition.y
@@ -101,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.800001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4536198121414486, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
       propertyPath: m_LocalRotation.x

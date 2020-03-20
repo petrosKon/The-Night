@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!54 &4960591258362381451
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2154650013879296096}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!65 &2029060733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39,8 +55,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  distanceToAttack: 5
   soundwaveParticles: {fileID: 127052, guid: 7d248886fe68294438b28193a85fd5f3, type: 3}
+  pickUpEffect: {fileID: 4946691145518096490, guid: 8241ba0152dc84b4ab0d10126bc05863,
+    type: 3}
 --- !u!114 &2029060734
 MonoBehaviour:
   m_ObjectHideFlags: 0
